@@ -11,11 +11,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # zsh_theme p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git)
+plugins=(
+  git
 # enable vi-style editing
 # https://github.com/jeffreytse/zsh-vi-mode
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# plugins+=(zsh-vi-mode)
+  zsh-vi-mode
+# enable fish-style autosuggestions
+# https://github.com/zsh-users/zsh-autosuggestions
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,6 +36,9 @@ function chpwd() {
 	emulate -L zsh
 	ls
 }
+
+# tab to accept autocomplete suggestion:
+zvm_bindkey viins '^I' autosuggest-accept
 
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
