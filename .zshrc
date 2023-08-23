@@ -39,6 +39,8 @@ function chpwd() {
 
 # tab to accept autocomplete suggestion:
 zvm_bindkey viins '^I' autosuggest-accept
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
