@@ -239,11 +239,7 @@
     .java-version
     .perl-version
     .php-version
-<<<<<<< HEAD
     .tool-version
-=======
-    .tool-versions
->>>>>>> 0cd736a (add p10k theme)
     .shorten_folder_marker
     .svn
     .terraform
@@ -1600,11 +1596,7 @@
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=178
   # Battery pictograms going from low to high level of charge.
-<<<<<<< HEAD
   typeset -g POWERLEVEL9K_BATTERY_STAGES='\UF008E\UF007A\UF007B\UF007C\UF007D\UF007E\UF007F\UF0080\UF0081\UF0082\UF0079'
-=======
-  typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
->>>>>>> 0cd736a (add p10k theme)
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
 
