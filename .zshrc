@@ -19,7 +19,15 @@ plugins=(
 # enable fish-style autosuggestions
 # https://github.com/zsh-users/zsh-autosuggestions
   zsh-autosuggestions
+# enable syntax highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting
+  zsh-syntax-highlighting 
+# enable autojump
+# https://github.com/wting/autojump
+  autojump  
 )
+
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && autoload -U compinit && compinit -u
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,12 +38,16 @@ source $ZSH/oh-my-zsh.sh
 	# config config --local status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
+alias v='nvim'
 
 # ls after cd
 function chpwd() {
 	emulate -L zsh
 	ls
 }
+
+# expand globs (unsure if this is the best way?)
+setopt no_nomatch
 
 # tab to accept autocomplete suggestion:
 zvm_bindkey viins '^I' autosuggest-accept
@@ -44,3 +56,6 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+source ~/.lyftrc

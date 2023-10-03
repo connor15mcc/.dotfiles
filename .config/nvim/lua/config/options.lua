@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.linebreak = true
+vim.opt.scrolloff = 5
