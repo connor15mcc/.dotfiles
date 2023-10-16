@@ -22,9 +22,6 @@ plugins=(
 # enable syntax highlighting
 # https://github.com/zsh-users/zsh-syntax-highlighting
   zsh-syntax-highlighting 
-# enable autojump
-# https://github.com/wting/autojump
-  autojump  
 )
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && autoload -U compinit && compinit -u
@@ -39,6 +36,8 @@ source $ZSH/oh-my-zsh.sh
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
 alias v='nvim'
+# set vim as default editor
+export EDITOR=nvim
 
 # ls after cd
 function chpwd() {
@@ -56,6 +55,5 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 source ~/.lyftrc

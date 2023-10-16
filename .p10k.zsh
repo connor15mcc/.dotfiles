@@ -37,6 +37,8 @@
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
+    # newline -- this is working!
+    # newline -- this is working!
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
