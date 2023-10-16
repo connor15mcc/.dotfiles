@@ -3,5 +3,5 @@
 -- Add any additional keymaps here
 
 -- TODO: not working:
--- map({ "n", "i" }, "<Tab>", "<C-t>", { desc = "tab" })
--- map({ "n", "i" }, "<S-Tab>", "<C-d?", { desc = "de-tab" })
+vim.keymap.set("n", "<Tab>", ">>", { desc = "tab" })
+vim.keymap.set("n", "<S-Tab>", "<<", { desc = "de-tab" })

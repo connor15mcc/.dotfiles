@@ -4,3 +4,6 @@
 
 vim.opt.linebreak = true
 vim.opt.scrolloff = 5
+vim.opt.colorcolumn = "80"
+vim.opt.number = true
+vim.opt.relativenumber = false

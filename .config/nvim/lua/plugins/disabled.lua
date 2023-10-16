@@ -1,0 +1,16 @@
+return {
+  { "goolord/alpha-nvim", enabled = false },
+  { "nvimdev/dashboard-nvim", enabled = false },
+  { "luckasRanarison/tree-sitter-hypr", enabled = false },
+  { "nvim-neotest/neotest", enabled = false },
+  { "stevearc/aerial.nvim", enabled = false },
+  { "ggandor/flit.nvim", enabled = false },
+  { "ggandor/leap.nvim", enabled = false },
+  { "echasnovski/mini.surround", enabled = false },
+  { "echasnovski/mini.files", enabled = false },
+  { "SmiteshP/nvim-navic", enabled = false },
+  { "simrat39/symbols-outline.nvim", enabled = false },
+  -- { "akinsho/bufferline.nvim", enabled = false },
+  { "echasnovski/mini.surround", enabled = false },
+  { "folke/flash.nvim", enabled = false },
+}
