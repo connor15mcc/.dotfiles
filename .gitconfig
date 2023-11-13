@@ -13,7 +13,15 @@
   diffFilter = delta --color-only
 
 [merge]
+  autoStash
   conflictstyle = diff3
+
+[push]
+  autoSetupRemote = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
 
 [diff]
   colorMoved = default
