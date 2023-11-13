@@ -1,0 +1,13 @@
+import:
+  # https://github.com/alacritty/alacritty-theme
+  # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  - ~/.config/alacritty/themes/themes/github_dark_colorblind.yaml
+font:
+  size: 18
+  normal:
+    family: MesloLGS NF
+window:
+  blur: true
+  opacity: 0.9
+  dynamic_padding: true
+  decorations: buttonless
