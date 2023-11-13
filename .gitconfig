@@ -7,3 +7,19 @@
 
 [core]
 	excludesfile = /Users/connormccarthy/.gitignore
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[delta]
+  navigate = true
+  light = false
+  line-numbers = true
+  side-by-side = true
