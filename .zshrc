@@ -36,8 +36,10 @@ source $ZSH/oh-my-zsh.sh
 	# exec zsh
 	# config config --local status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 alias vim='nvim'
 alias v='nvim'
+export PATH="$HOME/.local/share/bob/nvim-bin/":$PATH
 # set vim as default editor
 export EDITOR=nvim
 
@@ -57,12 +59,3 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source ~/.lyftrc
-
-### lyft_localdevtools_shell_rc start
-### DO NOT REMOVE: automatically installed as part of Lyft local dev tool setup
-if [[ -f "/opt/homebrew/Library/Taps/lyft/homebrew-localdevtools/scripts/shell_rc.sh" ]]; then
-    source "/opt/homebrew/Library/Taps/lyft/homebrew-localdevtools/scripts/shell_rc.sh"
-fi
-### lyft_localdevtools_shell_rc end
