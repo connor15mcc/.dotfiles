@@ -8,12 +8,12 @@ return {
     event = "VimEnter",
     opts = function()
       local logo = table.concat({
-        "           ██╗   ██╗██╗███╗   ███╗",
-        "           ██║   ██║██║████╗ ████║",
-        "           ██║   ██║██║██╔████╔██║",
-        "           ╚██╗ ██╔╝██║██║╚██╔╝██║",
-        "            ╚████╔╝ ██║██║ ╚═╝ ██║",
-        "             ╚═══╝  ╚═╝╚═╝     ╚═╝",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
       }, "\n")
       local pad = string.rep(" ", 16)
       local new_section = function(name, action, section)

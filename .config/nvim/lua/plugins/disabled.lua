@@ -10,7 +10,7 @@ return {
   { "echasnovski/mini.files", enabled = false },
   { "SmiteshP/nvim-navic", enabled = false },
   { "simrat39/symbols-outline.nvim", enabled = false },
-  -- { "akinsho/bufferline.nvim", enabled = false },
+  { "akinsho/bufferline.nvim", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
   { "folke/flash.nvim", enabled = false },
 }

@@ -5,6 +5,16 @@
 vim.opt.linebreak = true
 vim.opt.scrolloff = 5
 vim.opt.colorcolumn = "80"
-vim.opt.number = false
 vim.opt.relativenumber = false
+vim.opt.number = false
 vim.opt.directory = "."
+vim.opt.statuscolumn = "%s%l"
+vim.opt.conceallevel = 0
+vim.opt.undofile = true
+
+vim.opt.laststatus = 0
+vim.opt.showmode = false
+vim.opt.cmdheight = 0
+
+vim.opt.grepprg = "rg --vimgrep --smart-case"
+vim.opt.grepformat = "%f:%l:%m"

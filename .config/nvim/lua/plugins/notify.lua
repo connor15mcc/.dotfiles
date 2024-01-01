@@ -14,6 +14,15 @@ return {
       notify = {
         enabled = false,
       },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            kind = "search_count",
+          },
+          opts = { skip = true },
+        },
+      },
     },
   },
 }
