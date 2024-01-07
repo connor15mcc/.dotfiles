@@ -19,6 +19,11 @@ return {
       hidden = true,
       winblend = 0,
     },
+    pickers = {
+      find_files = {
+        disable_devicons = true,
+      },
+    },
   },
 },
 -- add telescope-fzf-native

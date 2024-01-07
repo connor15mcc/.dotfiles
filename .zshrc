@@ -13,6 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # zsh_theme p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+
 plugins=(
   git
 # enable vi-style editing

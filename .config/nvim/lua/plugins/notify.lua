@@ -8,21 +8,4 @@ return {
       top_down = false,
     },
   },
-  {
-    "folke/noice.nvim",
-    opts = {
-      notify = {
-        enabled = false,
-      },
-      routes = {
-        {
-          filter = {
-            event = "msg_show",
-            kind = "search_count",
-          },
-          opts = { skip = true },
-        },
-      },
-    },
-  },
 }
