@@ -11,6 +11,7 @@ window:
   opacity: 0.9
   dynamic_padding: true
   decorations: buttonless
+  option_as_alt: "Both"
 hints:
   enabled:
     - regex:
