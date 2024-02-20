@@ -58,6 +58,14 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# bun completions
+[ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
 source ~/.lyftrc
 
 ### lyft_localdevtools_shell_rc start
