@@ -9,12 +9,18 @@
 	excludesfile = /Users/connormccarthy/.gitignore
   pager = delta
 
+[commit]
+  verbose = true
+
 [interactive]
   diffFilter = delta --color-only
 
+[init]
+  defaultBranch = main
+
 [merge]
   autoStash
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 
 [push]
   autoSetupRemote = true
@@ -25,6 +31,7 @@
 
 [diff]
   colorMoved = default
+  algorithm = histogram
 
 [delta]
   navigate = true
