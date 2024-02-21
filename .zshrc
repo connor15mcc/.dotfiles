@@ -59,6 +59,9 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 # to customize p10k prompt
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 source ~/.lyftrc
 
 ### lyft_localdevtools_shell_rc start
