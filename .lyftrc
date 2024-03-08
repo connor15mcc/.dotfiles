@@ -25,7 +25,7 @@ export GOPROXY='https://athens.ingress.infra-prd.us-east-1.k8s.lyft.net'
 export GONOSUMDB='github.com/lyft/*,github.lyft.net/*'
 
 # TestIDL Pipeline PAT
-export PERSONAL_GITHUB_TOKEN=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
+export PERSONAL_GITHUB_TOKEN=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
 
 # direnv for devinfraanalysis
 eval "$(direnv hook zsh)"
