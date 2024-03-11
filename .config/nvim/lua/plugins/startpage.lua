@@ -11,7 +11,6 @@ return {
       end
 
       local starter = require("mini.starter")
-      --stylua: ignore
       local config = {
         evaluate_single = true,
         items = {
@@ -27,6 +26,7 @@ return {
           starter.gen_hook.adding_bullet("- ", false),
           starter.gen_hook.aligning("center", "center"),
         },
+        footer = "",
       }
       return config
     end,

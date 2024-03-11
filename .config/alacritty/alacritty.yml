@@ -23,6 +23,11 @@ hints:
       mouse:
         enabled: true
         mods: Shift
+keyboard:
+  bindings:
+    - key: "Space"
+      mods: "Control"
+      chars: "\x00"
 
 ### WINDOWS CONFIG BELOW:
 #
