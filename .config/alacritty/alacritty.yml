@@ -23,6 +23,11 @@ hints:
       mouse:
         enabled: true
         mods: Shift
+keyboard:
+  bindings:
+    - key: "Space"
+      mods: "Control"
+      chars: "\x00"
 
 ### WINDOWS CONFIG BELOW:
 #
@@ -51,4 +56,4 @@ hints:
 # program= "ubuntu2204"
 #
 # [keyboard]
-# bindings= [{ key= "Space", mods= "Control", chars= "\u0000" }]
+# bindings= [{ key= "Space", mods= "Control", chars= "\x00" }]
