@@ -23,3 +23,37 @@ hints:
       mouse:
         enabled: true
         mods: Shift
+keyboard:
+  bindings:
+    - key: "Space"
+      mods: "Control"
+      chars: "\x00"
+
+### WINDOWS CONFIG BELOW:
+#
+# https://github.com/alacritty/alacritty-theme
+# # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+# import = [ "~/.config/alacritty/themes/themes/github_dark_colorblind.yaml" ]
+#
+# [font]
+# size= 12
+# normal= { family= "Fira Code" }
+#
+# [window]
+# blur= true
+# opacity= 0.9
+# dynamic_padding= true
+# decorations= "none"
+#
+# [[hints.enabled]]
+# regex= "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+# hyperlinks= true
+# command= { program = "cmd", args = ["/c", "start", ""] }
+# post_processing= true
+# mouse={ enabled= true, mods= "Shift" }
+#
+# [shell]
+# program= "ubuntu2204"
+#
+# [keyboard]
+# bindings= [{ key= "Space", mods= "Control", chars= "\u0000" }]
