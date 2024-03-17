@@ -9,3 +9,5 @@
   - add nvim version to path: `bob use 0.9.5`
 - gitdelta
 - ripgrep
+- fzf
+- zoxide
