@@ -7,6 +7,9 @@ return {
       "shellcheck",
       "shfmt",
       "flake8",
+      "prettierd",
+      "proselint",
+      "write-good",
     },
   },
 }

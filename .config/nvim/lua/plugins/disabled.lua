@@ -17,5 +17,6 @@ return {
   { "stevearc/dressing.nvim", enabled = false },
   { "folke/noice.nvim", enabled = false },
   { "rcarriga/nvim-notify", enabled = false },
+  { "nvim-pack/nvim-spectre", enabled = false },
   -- { "folke/tokyonight.nvim", enabled = false },
 }

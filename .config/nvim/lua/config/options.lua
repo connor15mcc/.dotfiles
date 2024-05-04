@@ -4,13 +4,18 @@
 
 vim.opt.linebreak = true
 vim.opt.scrolloff = 5
+vim.opt.textwidth = 80
 vim.opt.colorcolumn = "80"
+vim.opt.wrap = false
+vim.opt.sidescrolloff = 0
 vim.opt.relativenumber = false
 vim.opt.number = false
 vim.opt.directory = "."
-vim.opt.statuscolumn = "%s%l"
+vim.opt.signcolumn = "no"
 vim.opt.conceallevel = 0
 vim.opt.undofile = true
+vim.opt.spell = true
+vim.opt.spellcapcheck = ""
 
 vim.opt.laststatus = 0
 vim.opt.showmode = false
