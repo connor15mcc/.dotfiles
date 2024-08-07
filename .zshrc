@@ -18,7 +18,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice wait"0" lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
-zinit ice wait"0" lucid
+zinit ice wait"0" lucid atinit"export ZSH_AUTOSUGGEST_STRATEGY=(history completion);
+                               export ZSH_AUTOSUGGEST_HISTORY_IGNORE='cd*';
+                               bindkey '^I' autosuggest-accept"
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait"0" lucid
@@ -47,11 +49,6 @@ bindkey -v
 
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
-
-# tab to accept autocomplete suggestion:
-bindkey '^I' autosuggest-accept
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
 
 # bun completions
 [ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
