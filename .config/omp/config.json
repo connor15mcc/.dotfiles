@@ -44,7 +44,7 @@
           "type": "path"
         },
         {
-          "foreground": "p:blue",
+          "foreground": "p:bright-green",
           "style": "plain",
           "template": " on {{ .HEAD }}<p:bright-yellow>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ({{ .Working.String }}){{ end }}</>",
           "type": "git",
