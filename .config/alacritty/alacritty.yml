@@ -1,7 +1,7 @@
 import:
   # https://github.com/alacritty/alacritty-theme
   # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-  - ~/.config/alacritty/themes/themes/github_dark_colorblind.yaml
+  - ~/.config/alacritty/themes/themes/kanagawa_dragon.yaml
 font:
   size: 18
   normal:
@@ -28,7 +28,6 @@ keyboard:
     - key: "Space"
       mods: "Control"
       chars: "\x00"
-
 ### WINDOWS CONFIG BELOW:
 #
 # https://github.com/alacritty/alacritty-theme

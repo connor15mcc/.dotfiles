@@ -3,27 +3,27 @@ layout {
     children 
     pane size=1 borderless=true {
       plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
-        format_left   "{mode} #[fg=#89B4FA,bold]{session}"
+        format_left   "{mode} #[fg=#31748f,bold]{session}"
         format_center "{tabs}"
         format_right  "{datetime}"
         format_space  ""
 
         border_enabled  "false"
 
-        mode_normal  "#[bg=blue] "
-        mode_tmux    "#[bg=#ffc387] "
+        mode_normal  "#[bg=#31748f] "
+        mode_tmux    "#[bg=#f6c177] "
 
         // formatting for inactive tabs
-        tab_normal              "#[fg=#6C7086] #{index}"
-        tab_normal_fullscreen   "#[fg=#6C7086] #{index} {fullscreen_indicator}"
+        tab_normal              "#[fg=#31748f] #{index}"
+        tab_normal_fullscreen   "#[fg=#31748f] #{index} {fullscreen_indicator}"
 
         // formatting for the current active tab
-        tab_active              "#[fg=#9399B2,bold,italic] #{index}"
-        tab_active_fullscreen   "#[fg=#9399B2,bold,italic] #{index} {fullscreen_indicator}"
+        tab_active              "#[fg=#f6c177,bold,italic] #{index}"
+        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] #{index} {fullscreen_indicator}"
 
         tab_fullscreen_indicator "[]"
 
-        datetime        "#[fg=#6C7086,bold] {format} "
+        datetime        "#[fg=#31748f,bold] {format} "
         datetime_format "%A %D @ %I:%M%P"
         datetime_timezone "America/New_York"
       }

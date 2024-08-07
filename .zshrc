@@ -1,35 +1,38 @@
 # git clone --bare git@github.com:connor15mcc/.dotfiles .dotfiles
-#
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+
+# zmodload zsh/zprof
+
+## zinit
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# zsh_theme p10k
-ZSH_THEME="powerlevel10k/powerlevel10k"
+zinit ice wait"0" lucid
+zinit light zsh-users/zsh-syntax-highlighting
 
+zinit ice wait"0" lucid
+zinit light zsh-users/zsh-autosuggestions
 
-plugins=(
-  git
-# enable vi-style editing
-# https://github.com/jeffreytse/zsh-vi-mode
-  zsh-vi-mode
-# enable fish-style autosuggestions
-# https://github.com/zsh-users/zsh-autosuggestions
-  zsh-autosuggestions
-# enable syntax highlighting
-# https://github.com/zsh-users/zsh-syntax-highlighting
-  zsh-syntax-highlighting 
-)
+zinit ice wait"0" lucid
+zinit snippet OMZP::git
+zinit ice wait"0" lucid
+zinit snippet OMZL::git.zsh
 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && autoload -U compinit && compinit -u
+zinit ice atinit"VI_MODE_SET_CURSOR=true"
+zinit snippet OMZP::vi-mode
+## /zinit
 
-source $ZSH/oh-my-zsh.sh
+## oh-my-posh
+eval "$(oh-my-posh init zsh --config ~/.config/omp/config.json)"
+## /oh-my-posh
 
 # for managing dotfiles...
 	# git init --bare $HOME/.dotfiles
@@ -38,26 +41,17 @@ source $ZSH/oh-my-zsh.sh
 	# config config --local status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
-alias v='nvim'
 # set vim as default editor
 export EDITOR=nvim
-
-# ls after cd
-function chpwd() {
-	emulate -L zsh
-	ls
-}
+bindkey -v
 
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
 
 # tab to accept autocomplete suggestion:
-zvm_bindkey viins '^I' autosuggest-accept
+bindkey '^I' autosuggest-accept
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd*"
-
-# to customize p10k prompt
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
 [ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
@@ -72,10 +66,14 @@ PATH=$HOME/go/bin:$PATH
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+# ls after cd
+function chpwd() {
+        emulate -L zsh
+        ls
+}
+
 # ruby
 eval "$(rbenv init - zsh)"
-
-source ~/.lyftrc
 
 ### lyft_localdevtools_shell_rc start
 ### DO NOT REMOVE: automatically installed as part of Lyft local dev tool setup
@@ -85,5 +83,13 @@ fi
 ### lyft_localdevtools_shell_rc end
 
 ### DO NOT REMOVE: automatically installed as part of Lyft local dev tool setup
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
-eval "$(jenv init -)"
+# eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+# eval "$(jenv init -)"
+
+PATH="/Users/connormccarthy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/connormccarthy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/connormccarthy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/connormccarthy/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/connormccarthy/perl5"; export PERL_MM_OPT;
+
+# zprof

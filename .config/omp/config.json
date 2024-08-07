@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "black": "#0d0c0c",
+    "red": "#c4746e",
+    "green": "#8a9a7b",
+    "yellow": "#c4b28a",
+    "blue": "#8ba4b0",
+    "magenta": "#a292a3",
+    "cyan": "#8ea4a2",
+    "white": "#C8C093",
+    "bright-black": "#a6a69c",
+    "bright-red": "#E46876",
+    "bright-green": "#87a987",
+    "bright-yellow": "#E6C384",
+    "bright-blue": "#7FB4CA",
+    "bright-magenta": "#938AA9",
+    "bright-cyan": "#7AA89F",
+    "bright-white": "#c5c9c5",
+    "git-added": "#76946A",
+    "git-removed": "#C34043",
+    "git-changed": "#DCA561",
+    "diag-error": "#E82424",
+    "diag-ok": "#98BB6C",
+    "diag-warning": "#FF9E3B",
+    "diag-info": "#658594",
+    "diag-hint": "#6A9589",
+    "special": "#7a8382",
+    "none": "transparent"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:bright-yellow",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": 2
+          },
+          "style": "plain",
+          "template": "{{ .Path }}",
+          "type": "path"
+        },
+        {
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": " on {{ .HEAD }}<p:bright-yellow>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ({{ .Working.String }}){{ end }}</>",
+          "type": "git",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": "",
+            "commit_icon": "",
+            "branch_identical_icon": ""
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "style": "plain",
+          "template": "\u276f",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "transient_prompt": {
+    "foreground": "p:bright-yellow",
+    "template": "{{ .Segments.Path.Path }} \u276f "
+  },
+  "version": 2
+}
