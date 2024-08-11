@@ -9,7 +9,12 @@ return {
         transparent = true,
 
         colors = {
-          theme = { all = { ui = { bg_gutter = "none" } } }, -- no background for sign/line gutter
+          theme = {
+            all = {
+              ui = { bg_gutter = "none" },
+              diag = { info = "none" },
+            },
+          }, -- no background for sign/line gutter
         },
       })
 

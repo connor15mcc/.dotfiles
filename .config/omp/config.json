@@ -65,7 +65,7 @@
       "segments": [
         {
           "style": "plain",
-          "template": "\u276f",
+          "template": "{{ if ne .Code 0 }}<p:bright-red>{{ end }}\u276f",
           "type": "text"
         }
       ],
