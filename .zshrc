@@ -20,7 +20,10 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 zinit ice wait"0" lucid atinit"export ZSH_AUTOSUGGEST_STRATEGY=(history completion);
                                export ZSH_AUTOSUGGEST_HISTORY_IGNORE='cd*';
-                               bindkey '^I' autosuggest-accept"
+                               bindkey '^Y' autosuggest-accept
+                               bindkey '^E' autosuggest-clear
+                               bindkey '^P' up-line-or-search
+                               bindkey '^N' down-line-or-search"
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait"0" lucid
