@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.del("n", "<leader>l")
 
 vim.keymap.set("n", "<leader>ul", function()
   if vim.opt_local.number:get() then
