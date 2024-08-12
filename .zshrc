@@ -50,6 +50,8 @@ alias vim='nvim'
 export EDITOR=nvim
 bindkey -v
 
+alias cat='bat'
+
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
 
