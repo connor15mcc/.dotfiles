@@ -46,6 +46,12 @@ return {
 
     vim.keymap.set(
       { "v" },
+      "<leader>li",
+      ":'<,'> GpImplement<cr>",
+      { noremap = true, silent = true, nowait = true, desc = "Implement comment stubs" }
+    )
+    vim.keymap.set(
+      { "v" },
       "<leader>lr",
       ":'<,'> GpCodeReview<cr>",
       { noremap = true, silent = true, nowait = true, desc = "Start a code review" }
