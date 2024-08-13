@@ -72,9 +72,6 @@ function chpwd() {
         ls
 }
 
-# ruby
-eval "$(rbenv init - zsh)"
-
 ### lyft_localdevtools_shell_rc start
 ### DO NOT REMOVE: automatically installed as part of Lyft local dev tool setup
 if [[ -f "/opt/homebrew/Library/Taps/lyft/homebrew-localdevtools/scripts/shell_rc.sh" ]]; then
