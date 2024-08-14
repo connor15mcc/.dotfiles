@@ -12,7 +12,13 @@ return {
           theme = {
             all = {
               ui = { bg_gutter = "none" },
-              diag = { info = "none" },
+              diag = {
+                info = "none",
+                -- make TODOs yellow
+                -- todo def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/highlights/treesitter.lua#L107
+                -- color def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/colors.lua#L28C20-L28C27
+                hint = "#FF9E3B",
+              },
             },
           }, -- no background for sign/line gutter
         },
