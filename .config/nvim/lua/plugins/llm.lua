@@ -29,6 +29,8 @@ return {
           local template = "I have the following code from {{filename}}:\n\n"
             .. "```{{filetype}}\n{{selection}}\n```\n\n"
             .. "Please respond by writing table driven unit tests for the code above."
+            .. "Use Testify library when writing Go tests."
+            .. "{{command}}"
           local agent = gp.get_command_agent()
           gp.Prompt(params, gp.Target.vnew, agent, template)
         end,
@@ -59,7 +61,7 @@ return {
     vim.keymap.set(
       { "v" },
       "<leader>lt",
-      ":'<,'> GpUnitTests<cr>",
+      ":'<,'> GpUnitTests ",
       { noremap = true, silent = true, nowait = true, desc = "Add unit tests" }
     )
 

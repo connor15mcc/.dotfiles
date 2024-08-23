@@ -90,3 +90,10 @@ PERL_MB_OPT="--install_base \"/Users/connormccarthy/perl5\""; export PERL_MB_OPT
 PERL_MM_OPT="INSTALL_BASE=/Users/connormccarthy/perl5"; export PERL_MM_OPT;
 
 # zprof
+
+### lyft_rd_shell_rc start
+### DO NOT REMOVE: automatically installed as part of Rancher Desktop setup
+if [[ -f /Users/connormccarthy/.rd/shell_rc.sh ]]; then
+  source /Users/connormccarthy/.rd/shell_rc.sh
+fi
+### lyft_rd_shell_rc end
