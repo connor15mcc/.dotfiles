@@ -11,9 +11,15 @@ return {
         colors = {
           theme = {
             all = {
-              ui = { bg_gutter = "none" },
+              ui = {
+                bg_gutter = "none",
+                -- make md checkboxes always the same color (highlighted or not)
+                fg_reverse = "#FF9E3B",
+              },
               diag = {
-                info = "none",
+                -- info = "none",
+                -- make hints less bright
+                hint = "#658594",
                 -- make TODOs yellow
                 -- todo def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/highlights/treesitter.lua#L107
                 -- color def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/colors.lua#L28C20-L28C27
@@ -22,6 +28,13 @@ return {
             },
           }, -- no background for sign/line gutter
         },
+
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            Todo = { bg = "none", fg = theme.diag.warning },
+          }
+        end,
       })
 
       vim.cmd("colorscheme kanagawa-wave")
