@@ -44,6 +44,7 @@ return {
           gp.Prompt(params, gp.Target.vnew("markdown"), agent, template)
         end,
       },
+      chat_free_cursor = true,
     }
 
     vim.keymap.set(
