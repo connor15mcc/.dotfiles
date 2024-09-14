@@ -53,6 +53,8 @@ bindkey -v
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
 
+alias gab='git absorb'
+
 # bun completions
 [ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
 #
