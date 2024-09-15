@@ -16,7 +16,7 @@
   defaultBranch = main
 
 [merge]
-  autoStash
+  autoStash = true
   conflictstyle = zdiff3
 
 [push]
@@ -37,5 +37,5 @@
   side-by-side = true
 
 [absorb]
-    oneFixupPerCommit = true
-    autoStageIfNothingStaged = true
+  oneFixupPerCommit = true
+  autoStageIfNothingStaged = true
