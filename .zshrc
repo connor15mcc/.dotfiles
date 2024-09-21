@@ -31,6 +31,10 @@ zinit snippet OMZP::git
 zinit ice wait"0" lucid
 zinit snippet OMZL::git.zsh
 
+zinit ice wait"0" lucid
+zinit ice atinit"zstyle :omz:plugins:ssh-agent identities id_ed25519"
+zinit snippet OMZP::ssh-agent
+
 zinit ice atinit"VI_MODE_SET_CURSOR=true"
 zinit snippet OMZP::vi-mode
 ## /zinit

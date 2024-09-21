@@ -3,7 +3,7 @@
 	email = connor15mcc@gmail.com
 
 [core]
-	excludesfile = /Users/connormccarthy/.gitignore
+	excludesfile = ~/.gitignore
   pager = delta
 
 [commit]
