@@ -6,9 +6,3 @@
 vim.api.nvim_create_augroup("lazyvim_last_loc", { clear = true })
 -- OVERRIDE: **dont** "wrap and check for spell in text filetypes"
 vim.api.nvim_create_augroup("wrap_spell", { clear = true })
-
--- treat jj descriptions like git
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.jjdescription" },
-  command = "set filetype=gitcommit",
-})

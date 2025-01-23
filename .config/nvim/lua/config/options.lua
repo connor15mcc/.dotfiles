@@ -24,3 +24,9 @@ vim.opt.cmdheight = 0
 
 vim.opt.grepprg = "rg --vimgrep --smart-case"
 vim.opt.grepformat = "%f:%l:%m"
+
+vim.filetype.add({
+  pattern = {
+    [".*.jjdescription"] = "gitcommit",
+  },
+})
