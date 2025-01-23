@@ -37,6 +37,9 @@ zinit snippet OMZP::ssh-agent
 
 zinit ice atinit"VI_MODE_SET_CURSOR=true"
 zinit snippet OMZP::vi-mode
+
+zinit ice wait"0" lucid
+zinit snippet OMZP::direnv
 ## /zinit
 
 ## oh-my-posh
@@ -57,6 +60,7 @@ bindkey -v
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
 
+export JJ_CONFIG=~/.config/jj/config.toml
 alias gab='git absorb'
 
 # bun completions
@@ -103,3 +107,7 @@ if [[ -f /Users/connormccarthy/.rd/shell_rc.sh ]]; then
   source /Users/connormccarthy/.rd/shell_rc.sh
 fi
 ### lyft_rd_shell_rc end
+
+. "$HOME/.local/bin/env"
+
+export PATH="$PATH:/Users/connormccarthy/projects/screenpipe/target/debug"

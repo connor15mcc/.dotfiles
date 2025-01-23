@@ -17,7 +17,6 @@ opt.cmdheight = 0
 opt.grepformat = "%f:%l:%m"
 -- opt.fillchars = { eob = " " }
 opt.clipboard = "unnamedplus"
-opt.confirm = true
 opt.expandtab = true
 opt.tabstop = 2
 opt.inccommand = "nosplit"
@@ -25,3 +24,9 @@ opt.list = true -- show invisible chars
 opt.smartcase = true
 opt.autoindent = true
 opt.virtualedit = "block"
+
+vim.filetype.add({
+	pattern = {
+		[".*.jjdescription"] = "gitcommit",
+	},
+})

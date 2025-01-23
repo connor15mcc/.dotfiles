@@ -12,6 +12,7 @@ vim.opt.relativenumber = false
 vim.opt.number = false
 vim.opt.directory = "."
 vim.opt.signcolumn = "no"
+vim.opt.relativenumber = false
 vim.opt.conceallevel = 0
 vim.opt.undofile = true
 vim.opt.spell = true

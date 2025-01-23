@@ -21,6 +21,7 @@
 
 [push]
   autoSetupRemote = true
+	autoSetupReomte = true
 
 [rebase]
   autoSquash = true
@@ -39,3 +40,18 @@
 [absorb]
   oneFixupPerCommit = true
   autoStageIfNothingStaged = true
+
+[alias]
+	hack = town hack
+
+[git-town]
+  push-hook = false
+  push-new-branches = false
+  create-prototype-branches = true
+  ship-strategy = "api"
+  ship-delete-tracking-branch = false
+  sync-tags = false
+  sync-upstream = false
+  main-branch = "main"
+  sync-feature-strategy = "rebase"
+  sync-perennial-strategy = "rebase"
