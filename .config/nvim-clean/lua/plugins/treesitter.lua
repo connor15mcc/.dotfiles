@@ -3,7 +3,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
-      highlight = true,
+      highlight = { enable = true },
+      indent = { enable = true },
       ensure_installed = {
         "bash",
         "go",
