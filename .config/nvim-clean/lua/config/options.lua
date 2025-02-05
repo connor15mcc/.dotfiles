@@ -15,18 +15,21 @@ opt.spell = true
 opt.spellcapcheck = ""
 opt.cmdheight = 0
 opt.grepformat = "%f:%l:%m"
--- opt.fillchars = { eob = " " }
 opt.clipboard = "unnamedplus"
-opt.expandtab = true
-opt.tabstop = 2
 opt.inccommand = "nosplit"
 opt.list = true -- show invisible chars
 opt.smartcase = true
-opt.autoindent = true
 opt.virtualedit = "block"
+
+-- handle tabs:
+opt.autoindent = true
+opt.expandtab = false
+opt.tabstop = 2
+opt.shiftwidth = 2
 
 vim.filetype.add({
 	pattern = {
 		[".*.jjdescription"] = "gitcommit",
 	},
 })
+

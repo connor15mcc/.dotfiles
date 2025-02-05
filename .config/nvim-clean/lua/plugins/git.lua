@@ -1,4 +1,5 @@
 return {
+	-- TODO: I'm 99.99999% sure we want fugitive..
   {
     "ruifm/gitlinker.nvim",
     opts = {
