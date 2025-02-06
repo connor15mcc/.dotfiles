@@ -30,9 +30,6 @@ return {
 		},
 	},
 	{
-		"zapling/mason-conform.nvim",
-		opts = {
-			quiet_mode = false,
-		},
+		"LittleEndianRoot/mason-conform.nvim",
 	},
 }
