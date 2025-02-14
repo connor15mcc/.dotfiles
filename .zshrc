@@ -59,6 +59,8 @@ setopt no_nomatch
 
 export JJ_CONFIG=~/.config/jj/config.toml
 alias gab='git absorb'
+alias gdecay='git log --pretty=format:"%ad" --date=iso | tools decay'
+alias gcontrib='git log --pretty=format:"%an" | sort | uniq -c | sort -r'
 
 # bun completions
 [ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
