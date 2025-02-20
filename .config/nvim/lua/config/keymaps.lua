@@ -35,11 +35,11 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
@@ -65,10 +65,11 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- LSP:
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "Goto References" })
-map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementations" })
-map("n", "K", function() return vim.lsp.buf.hover() end, { desc = "Hover" })
-map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "grd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+-- until this lands (0.11) https://github.com/neovim/neovim/pull/28650
+map("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "gra", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "grr", vim.lsp.buf.references, { desc = "Goto References" })
+map("n", "gri", vim.lsp.buf.implementation, { desc = "Goto Implementations" })
