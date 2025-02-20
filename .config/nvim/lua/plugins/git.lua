@@ -33,6 +33,27 @@ return {
 			signcolumn = false,
 			numhl = true,
 			word_diff = false,
-		},
+			on_attach = function(buffer)
+				local gs = package.loaded.gitsigns
+
+				vim.keymap.set("n", "]h", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "]c", bang = true })
+					else
+						gs.nav_hunk("next")
+					end
+				end, {
+					buffer = buffer, desc = "Next Hunk" })
+				vim.keymap.set("n", "[h", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "[c", bang = true })
+					else
+						gs.nav_hunk("prev")
+					end
+				end, { buffer = buffer, desc = "Prev Hunk" })
+				vim.keymap.set({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", { buffer = buffer, desc = "Stage Hunk" })
+				vim.keymap.set({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", { buffer = buffer, desc = "Reset Hunk" })
+			end,
+		}
 	}
 }
