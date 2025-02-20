@@ -6,7 +6,7 @@ return {
 	{
 		"stevearc/conform.nvim",
 		dependencies = { "mason.nvim" },
-		lazy = true,
+		lazy = false,
 		cmd = "ConformInfo",
 		keys = {
 			{
@@ -30,6 +30,6 @@ return {
 		},
 	},
 	{
-		"LittleEndianRoot/mason-conform.nvim",
+		"LittleEndianRoot/mason-conform",
 	},
 }
