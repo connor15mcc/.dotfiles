@@ -24,6 +24,19 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
+map("n", "<leader>ul",
+	function()
+		if vim.opt_local.number:get() then
+			vim.opt_local.number = false
+			vim.opt_local.signcolumn = "no"
+		else
+			vim.opt_local.number = true
+			vim.opt_local.signcolumn = "number"
+		end
+	end,
+	{ desc = "Toggle line number" }
+)
+
 -- diagnostic
 local diagnostic_goto = function(next, severity)
 	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev

@@ -32,4 +32,3 @@ vim.filetype.add({
 		[".*.jjdescription"] = "gitcommit",
 	},
 })
-
