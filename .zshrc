@@ -37,6 +37,8 @@ zinit snippet OMZP::ssh-agent
 
 zinit ice atinit"VI_MODE_SET_CURSOR=true"
 zinit snippet OMZP::vi-mode
+
+zinit load atuinsh/atuin
 ## /zinit
 
 ## oh-my-posh
