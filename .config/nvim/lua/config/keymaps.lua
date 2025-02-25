@@ -36,6 +36,16 @@ map("n", "<leader>ul",
 	end,
 	{ desc = "Toggle line number" }
 )
+map("n", "<leader>uf",
+	function()
+		if vim.b.disable_autoformat then
+			vim.b.disable_autoformat = false
+		else
+			vim.b.disable_autoformat = true
+		end
+	end,
+	{ desc = "Toggle auto format" }
+)
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
