@@ -14,4 +14,8 @@ return {
 			{ "ga",        "<cmd>CodeCompanionChat Add<cr>", mode = "v",     noremap = true, silent = true },
 		},
 	},
+	{
+		"github/copilot.vim"
+		lazy = true,
+	},
 }
