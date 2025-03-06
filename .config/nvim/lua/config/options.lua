@@ -20,6 +20,8 @@ opt.inccommand = "nosplit"
 opt.list = true -- show invisible chars
 opt.smartcase = true
 opt.virtualedit = "block"
+opt.splitright = true
+opt.splitbelow = true
 
 -- handle tabs:
 opt.autoindent = true
