@@ -13,8 +13,7 @@ return {
       -- local lspconfig = require("lspconfig")
       local mason = require("mason")
       mason.setup()
-      local mason_lspconfig = require("mason-lspconfig")
-      mason_lspconfig.setup_handlers {
+      require("mason-lspconfig").setup_handlers {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
@@ -23,9 +22,17 @@ return {
         end,
         -- Next, you can provide a dedicated handler for specific servers.
         -- For example, a handler override for the `rust_analyzer`:
-        -- ["rust_analyzer"] = function ()
-        --     require("rust-tools").setup {}
-        -- end
+        ["rust_analyzer"] = function ()
+					require("lspconfig").rust_analyzer.setup{
+						settings = {
+							["rust-analyzer"] = {
+								rustfmt = {
+									extraArgs = { "+nightly", },
+								},
+							}
+						}
+					}
+        end
       }
     end,
   },
