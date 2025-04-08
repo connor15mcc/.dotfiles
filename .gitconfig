@@ -30,6 +30,9 @@
   colorMoved = default
   algorithm = histogram
 
+[branch]
+  sort = -committerdate
+
 [delta]
   navigate = true
   light = false
