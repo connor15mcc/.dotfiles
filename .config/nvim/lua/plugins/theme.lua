@@ -13,7 +13,7 @@ return {
 						all = {
 							ui = {
 								bg_gutter = "none",
-								bg_m3 = "none",
+								bg_m3 = "#2A2A37",
 								-- make md checkboxes always the same color (highlighted or not)
 								fg_reverse = "#FF9E3B",
 							},
