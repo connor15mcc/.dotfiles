@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlight", silent = true })
+
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
