@@ -5,6 +5,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		opts = {},
 	},
 	{
