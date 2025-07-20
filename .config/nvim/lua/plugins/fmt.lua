@@ -26,8 +26,13 @@ return {
 				end
 				return { timeout_ms = 500, lsp_format = "fallback" }
 			end,
+      formatters = {
+        sleek = { command = "sleek" },
+      },
 			formatters_by_ft = {
 				go = { "goimports", "gofumpt" },
+        sql = { "sleek" },
+        ["*"] = { "injected" }, -- enables injected-lang formatting for all filetypes
 			},
 		},
 	},
