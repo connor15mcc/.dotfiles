@@ -3,17 +3,39 @@
 	email = connor15mcc@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
   pager = delta
+  autocrlf = input
 
-[commit]
-  verbose = true
+[url "ssh://git@github.com/"]
+  insteadOf = "https://github.com/"
 
-[interactive]
-  diffFilter = delta --color-only
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
+[url "git@github.com:connor15mcc/"]
+  insteadOf = "me:"
+
+[url "git@github.com:lyft/"]
+  insteadOf = "lyft:"
 
 [init]
   defaultBranch = main
+
+[blame]
+  coloring = highlightRecent
+  date = relative
+
+[commit]
+  template = ~/.config/git/template
+  verbose = true
+
+[log]
+  abbrevCommit = true
+
+[interactive]
+  diffFilter = delta --color-only
+  singlekey = true
 
 [merge]
   autoStash = true
@@ -22,6 +44,9 @@
 [push]
   autoSetupRemote = true
 
+[pull]
+  rebase = true
+
 [rebase]
   autoSquash = true
   autoStash = true
@@ -29,9 +54,13 @@
 [diff]
   colorMoved = default
   algorithm = histogram
+  interHunkContext = 10
 
 [branch]
   sort = -committerdate
+
+[tag]
+  sort = -taggerdate
 
 [delta]
   navigate = true
