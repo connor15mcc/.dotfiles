@@ -1,9 +1,9 @@
 [user]
-	name = Connor McCarthy
-	email = connor15mcc@gmail.com
+  name = Connor McCarthy
+  email = connor15mcc@gmail.com
 
 [core]
-	excludesfile = ~/.config/git/ignore
+  excludesfile = ~/.config/git/ignore
   pager = delta
   autocrlf = input
 
@@ -73,7 +73,8 @@
   autoStageIfNothingStaged = true
 
 [alias]
-	hack = town hack
+  hack = town hack
+  who = shortlog --summary --numbered
 
 [git-town]
   push-hook = false
