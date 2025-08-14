@@ -74,7 +74,7 @@
 
 [alias]
   hack = town hack
-  who = shortlog --summary --numbered
+  who = shortlog --summary --numbered --group=author --group=trailer:co-authored-by
 
 [git-town]
   push-hook = false
