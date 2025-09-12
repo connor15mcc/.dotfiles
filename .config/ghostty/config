@@ -1,0 +1,9 @@
+theme = Kanagawa Wave
+font-family = Fira Code
+
+macos-titlebar-proxy-icon = hidden
+title = " "
+window-decoration = none
+macos-icon = "retro"
+
+background-opacity = 0.9
