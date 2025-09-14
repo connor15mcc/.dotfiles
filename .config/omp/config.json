@@ -2,80 +2,127 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
     "black": "#0d0c0c",
-    "red": "#c4746e",
-    "green": "#8a9a7b",
-    "yellow": "#c4b28a",
     "blue": "#8ba4b0",
-    "magenta": "#a292a3",
-    "cyan": "#8ea4a2",
-    "white": "#C8C093",
     "bright-black": "#a6a69c",
-    "bright-red": "#E46876",
-    "bright-green": "#87a987",
-    "bright-yellow": "#E6C384",
     "bright-blue": "#7FB4CA",
-    "bright-magenta": "#938AA9",
     "bright-cyan": "#7AA89F",
+    "bright-green": "#87a987",
+    "bright-magenta": "#938AA9",
+    "bright-red": "#E46876",
     "bright-white": "#c5c9c5",
-    "git-added": "#76946A",
-    "git-removed": "#C34043",
-    "git-changed": "#DCA561",
+    "bright-yellow": "#E6C384",
+    "cyan": "#8ea4a2",
     "diag-error": "#E82424",
+    "diag-hint": "#6A9589",
+    "diag-info": "#658594",
     "diag-ok": "#98BB6C",
     "diag-warning": "#FF9E3B",
-    "diag-info": "#658594",
-    "diag-hint": "#6A9589",
+    "git-added": "#76946A",
+    "git-changed": "#DCA561",
+    "git-removed": "#C34043",
+    "green": "#8a9a7b",
+    "magenta": "#a292a3",
+    "none": "transparent",
+    "red": "#c4746e",
     "special": "#7a8382",
-    "none": "transparent"
+    "white": "#C8C093",
+    "yellow": "#c4b28a"
+  },
+  "transient_prompt": {
+    "template": "{{ .Segments.Path.Path }} ❯ ",
+    "foreground": "p:bright-yellow"
   },
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-          "foreground": "p:bright-yellow",
           "properties": {
-            "style": "agnoster_short",
-            "max_depth": 2
+            "cache_duration": "none",
+            "max_depth": 2,
+            "style": "agnoster_short"
           },
-          "style": "plain",
           "template": "{{ .Path }}",
-          "type": "path"
+          "foreground": "p:bright-yellow",
+          "type": "path",
+          "style": "plain"
         },
         {
-          "foreground": "p:bright-green",
+          "type": "command",
           "style": "plain",
-          "template": " on {{ .HEAD }}<p:bright-yellow>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ({{ .Working.String }}){{ end }}</>",
+          "alias": "JJ",
+          "properties": {
+            "shell": "bash",
+            "command": "if jj root >/dev/null 2>&1; then echo -n ''; jj log -r @ --no-graph -T 'change_id.shortest() ++ \" \" ++ description.first_line()' 2>/dev/null; fi"
+          },
+          "template": " (jj:{{ .Output }})"
+        },
+        {
           "type": "git",
           "properties": {
-            "fetch_status": true,
+            "branch_gone_icon": "",
             "branch_icon": "",
-            "commit_icon": "",
             "branch_identical_icon": "",
-            "branch_gone_icon": ""
-          }
+            "cache_duration": "none",
+            "commit_icon": "",
+            "fetch_status": true
+          },
+          "template": "{{ if not .Segments.JJ.Output }} on {{ .HEAD }}<p:bright-yellow>{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ({{ .Working.String }}){{ end }}</>{{ end }}",
+          "foreground": "p:bright-green",
+          "style": "plain"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
-      "alignment": "left",
-      "newline": true,
+      "type": "prompt",
+      "alignment": "right",
       "segments": [
         {
-          "style": "plain",
-          "template": "{{ if ne .Code 0 }}<p:bright-red>{{ end }}\u276f",
-          "type": "text"
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "(rustc {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }})",
+          "foreground": "p:red",
+          "type": "rust",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "(go {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }})",
+          "foreground": "p:blue",
+          "type": "go",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "(py {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
+          "foreground": "p:blue",
+          "type": "python",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if ne .Code 0 }}<p:bright-red>{{ end }}❯",
+          "type": "text",
+          "style": "plain"
         }
       ],
-      "type": "prompt"
+      "newline": true
     }
   ],
-  "final_space": true,
-  "transient_prompt": {
-    "foreground": "p:bright-yellow",
-    "template": "{{ .Segments.Path.Path }} \u276f "
-  },
-  "version": 2
+  "version": 3,
+  "final_space": true
 }
