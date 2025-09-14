@@ -42,7 +42,7 @@ zinit load atuinsh/atuin
 ## /zinit
 
 ## oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.config/omp/config.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/omp/config.yaml)"
 ## /oh-my-posh
 
 # for managing dotfiles...
@@ -110,5 +110,8 @@ if [[ -f /Users/connormccarthy/.rd/shell_rc.sh ]]; then
   source /Users/connormccarthy/.rd/shell_rc.sh
 fi
 ### lyft_rd_shell_rc end
+#
 
 export PATH="$PATH:/Users/connormccarthy/projects/screenpipe/target/debug"
+export LIBCLANG_PATH="/home/cjmcc/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-19.1.2_20250225/esp-clang/lib"
+export PATH="/home/cjmcc/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin:$PATH"
