@@ -32,4 +32,8 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     opts = { max_lines = 1 },
   },
+  {
+    "bezhermoso/tree-sitter-ghostty",
+    build = "make nvim_install",
+  },
 }
