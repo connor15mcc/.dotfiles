@@ -1,8 +1,11 @@
-#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
-
 [user]
 name = "Connor McCarthy"
 email = "connor15mcc@gmail.com"
+
+[ui]
+default-command = ["log", "--limit=3"]
+pager = "delta"
+diff.format = "git"
 
 [templates]
 draft_commit_description = '''
@@ -16,3 +19,17 @@ concat(
   diff.git(),
 )
 '''
+
+# To prevent rewriting commits authored by other users:
+[revset-aliases]
+"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
+
+
+[template-aliases]
+# Show unique prefix and the rest surrounded by brackets
+'format_short_id(id)' = 'id.shortest(12).prefix() ++ "[" ++ id.shortest(12).rest() ++ "]"'
+# Show username (rather than email)
+'format_short_signature(signature)' = 'signature.email().local()'
+
+[git]
+push-bookmark-prefix = "connor15mcc/"
