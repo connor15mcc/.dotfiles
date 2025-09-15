@@ -47,7 +47,9 @@ blocks:
         alias: JJ
         properties:
           shell: bash
-          command: if jj root >/dev/null 2>&1; then echo -n ''; jj log -r @ --no-graph -T 'change_id.shortest() ++ " " ++ description.first_line()' 2>/dev/null; fi
+          command: |
+            if jj root >/dev/null 2>&1; then echo -n ''; fi
+            jj --ignore-working-copy log -r @ --no-graph -T 'change_id.shortest() ++ " " ++ description.first_line()' 2>/dev/null;
         template: ' (jj:{{ .Output }})'
       - type: git
         properties:
