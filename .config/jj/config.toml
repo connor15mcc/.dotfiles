@@ -33,7 +33,6 @@ concat(
 default_commit_description = '''
 "
 
-Closes #NNNN
 "
 '''
 
