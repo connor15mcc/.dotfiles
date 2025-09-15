@@ -30,6 +30,12 @@ concat(
 'format_short_id(id)' = 'id.shortest(12).prefix() ++ "[" ++ id.shortest(12).rest() ++ "]"'
 # Show username (rather than email)
 'format_short_signature(signature)' = 'signature.email().local()'
+default_commit_description = '''
+"
+
+Closes #NNNN
+"
+'''
 
 [git]
 push-bookmark-prefix = "connor15mcc/"
