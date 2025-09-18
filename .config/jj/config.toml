@@ -5,7 +5,7 @@ email = "connor15mcc@gmail.com"
 [ui]
 default-command = ["log", "--limit=3"]
 pager = "delta"
-diff.format = "git"
+diff-formatter = ":git"
 
 [templates]
 draft_commit_description = '''
@@ -37,4 +37,4 @@ default_commit_description = '''
 '''
 
 [git]
-push-bookmark-prefix = "connor15mcc/"
+templates.git_push_bookmark = '"connor15mcc/" ++ change_id.short()'
