@@ -19,6 +19,18 @@ concat(
   diff.git(),
 )
 '''
+log_node = '''
+  label("node",
+    coalesce(
+      if(!self, label("elided", "~")),
+      if(current_working_copy, label("working_copy", "@")),
+      if(conflict, label("conflict", "×")),
+      if(immutable, label("immutable", "*")),
+      label("normal", "·")
+    )
+  )
+'''
+log = "builtin_log_compact_full_description"
 
 [aliases]
 tug = [
@@ -48,6 +60,7 @@ default_commit_description = '''
 
 "
 '''
+"format_timestamp(timestamp)" = "timestamp.ago()"
 
 [git]
 templates.git_push_bookmark = '"connor15mcc/" ++ change_id.short()'
