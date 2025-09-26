@@ -1,5 +1,7 @@
 # git clone --bare git@github.com:connor15mcc/.dotfiles .dotfiles
 
+export PATH=$HOME/.local/bin:$PATH
+
 # zmodload zsh/zprof
 
 ## zinit

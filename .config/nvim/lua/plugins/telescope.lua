@@ -38,25 +38,27 @@ return {
       { "<leader>sW",      "<cmd>Telescope grep_string<CR>",               { root = false, word_match = "-w" }, desc = "Word (cwd)" },
       { "<leader>uC",      "<cmd>Telescope colorscheme<CR>",               { enable_preview = true },           desc = "Colorscheme with Preview" },
     },
-    opts = {
-      defaults = {
-        layout_strategy = "bottom_pane",
-        layout_config = { prompt_position = "bottom", height = 25 },
-        sorting_strategy = "descending",
-        hidden = true,
-        winblend = 0,
-        prompt_prefix = ">",
-        border = false,
-        entry_prefix = "",
-        results_title = false,
-        prompt_title = false,
-        file_sorter = require('telescope.sorters').get_fzy_sorter,
-      },
-      pickers = {
-        find_files = {
-          disable_devicons = true,
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          layout_strategy = "bottom_pane",
+          layout_config = { prompt_position = "bottom", height = 25 },
+          sorting_strategy = "descending",
+          hidden = true,
+          winblend = 0,
+          prompt_prefix = ">",
+          border = false,
+          entry_prefix = "",
+          results_title = false,
+          prompt_title = false,
+          file_sorter = require("telescope.sorters").get_fzy_sorter,
         },
-      },
-    },
+        pickers = {
+          find_files = {
+            disable_devicons = true,
+          },
+        },
+      })
+    end
   },
 }
