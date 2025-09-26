@@ -3,7 +3,7 @@ keybinds {
     normal clear-defaults=true {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        bind "\u{0000}" { SwitchToMode "Tmux"; }
+        bind "Ctrl space" { SwitchToMode "Tmux"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
