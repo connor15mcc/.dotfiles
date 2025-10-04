@@ -50,6 +50,7 @@ tug = [
   "--to",
   "closest_pushable(@)",
 ]
+mine = ["bookmark", "list", "-r", "mine()"]
 
 [revset-aliases]
 # To prevent rewriting commits authored by other users:
