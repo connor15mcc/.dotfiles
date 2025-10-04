@@ -67,19 +67,7 @@ blocks:
     segments:
       - properties:
           cache_duration: none
-        template: (rustc {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }})
-        foreground: p:red
-        type: rust
-        style: plain
-      - properties:
-          cache_duration: none
-        template: (go {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }})
-        foreground: p:blue
-        type: go
-        style: plain
-      - properties:
-          cache_duration: none
-        template: (py {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})
+        template: (py {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }})
         foreground: p:blue
         type: python
         style: plain
