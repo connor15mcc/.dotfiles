@@ -32,6 +32,14 @@ log_node = '''
   )
 '''
 log = "builtin_log_compact_full_description"
+file_annotate = '''
+separate(" ",
+  commit.change_id().shortest(8),
+  pad_end(8, truncate_end(8, commit.author().name())),
+  pad_end(11, format_timestamp(commit_timestamp(commit))),
+  pad_start(4, line_number),
+) ++ ": " ++ content
+'''
 
 [aliases]
 tug = [
