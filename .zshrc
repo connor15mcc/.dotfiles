@@ -53,9 +53,9 @@ eval "$(oh-my-posh init zsh --config ~/.config/omp/config.yaml)"
 	# exec zsh
 	# config config --local status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias vim='nvim'
 # set vim as default editor
 export EDITOR=nvim
+alias vim='nvim'
 bindkey -v
 
 # expand globs (unsure if this is the best way?)
@@ -65,6 +65,8 @@ export JJ_CONFIG=~/.config/jj/config.toml
 alias gab='git absorb'
 alias gdecay='git log --pretty=format:"%ad" --date=iso | tools decay'
 alias gcontrib='git log --pretty=format:"%an" | sort | uniq -c | sort -r'
+
+alias petname='tools petname'
 
 # bun completions
 [ -s "/home/cjmcc/.bun/_bun" ] && source "/home/cjmcc/.bun/_bun"
