@@ -3,7 +3,7 @@ name = "Connor McCarthy"
 email = "connor15mcc@gmail.com"
 
 [ui]
-default-command = ["log", "--limit=3"]
+default-command = ["log", "--limit=3", "--template=builtin_log_comfortable"]
 pager = "delta"
 diff-formatter = ":git"
 
