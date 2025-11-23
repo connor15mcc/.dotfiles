@@ -15,6 +15,21 @@ return {
       { "<leader>fg",      "<cmd>Telescope git_files<CR>",                 desc = "Find Files (git-files)" },
       { "<leader>fr",      "<cmd>Telescope oldfiles<CR>",                  desc = "Recent" },
       { "<leader>fR",      "<cmd>Telescope oldfiles<CR>",                  { cwd = vim.uv.cwd() },              desc = "Recent (cwd)" },
+      {
+        "<leader>ft",
+        function()
+          require("telescope.builtin").treesitter({
+          })
+        end,
+        desc = "Find treesitter objects",
+      },
+      {
+        "<leader>fs",
+        function()
+          require("telescope.builtin").lsp_document_symbols()
+        end,
+        desc = "Find LSP symbols",
+      },
       -- git
       { "<leader>gc",      "<cmd>Telescope git_commits<CR>",               desc = "Commits" },
       { "<leader>gs",      "<cmd>Telescope git_status<CR>",                desc = "Status" },
