@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""
+hist - Generate a textual histogram from line-delimited numbers
+Usage: echo '100 10 1' | hist
+       cat numbers.txt | hist
+       seq 1 1000 | hist --log
+"""
+
+import sys
+import math
+import argparse
+from collections import Counter
+
+
+def parse_numbers(lines):
+    """Parse numbers from input lines (space or newline delimited)"""
+    numbers = []
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        # Split on whitespace to handle space-delimited numbers
+        for token in line.split():
+            try:
+                numbers.append(float(token))
+            except ValueError:
+                continue
+    return numbers
+
+
+def create_histogram(numbers, num_buckets=10, use_log=False):
+    """Create histogram buckets and counts"""
+    if not numbers:
+        return []
+
+    min_val = min(numbers)
+    max_val = max(numbers)
+
+    # Handle edge case where all numbers are the same
+    if min_val == max_val:
+        return [(min_val, min_val, len(numbers))]
+
+    if use_log:
+        # Log-scale bucketing
+        # Filter out non-positive numbers for log scale
+        positive_numbers = [n for n in numbers if n > 0]
+        if not positive_numbers:
+            print("Error: Log scale requires positive numbers", file=sys.stderr)
+            sys.exit(1)
+
+        min_val = min(positive_numbers)
+        max_val = max(positive_numbers)
+
+        log_min = math.log10(min_val)
+        log_max = math.log10(max_val)
+        log_width = (log_max - log_min) / num_buckets
+
+        buckets = Counter()
+        for num in positive_numbers:
+            log_num = math.log10(num)
+            bucket_idx = min(int((log_num - log_min) / log_width), num_buckets - 1)
+            bucket_start = 10 ** (log_min + bucket_idx * log_width)
+            bucket_end = 10 ** (log_min + (bucket_idx + 1) * log_width)
+            buckets[(bucket_start, bucket_end)] += 1
+    else:
+        # Linear bucketing
+        bucket_width = (max_val - min_val) / num_buckets
+
+        buckets = Counter()
+        for num in numbers:
+            bucket_idx = min(int((num - min_val) / bucket_width), num_buckets - 1)
+            bucket_start = min_val + bucket_idx * bucket_width
+            bucket_end = bucket_start + bucket_width
+            buckets[(bucket_start, bucket_end)] += 1
+
+    return sorted(buckets.items())
+
+
+def display_histogram(buckets, max_width=50):
+    """Display the histogram as text"""
+    if not buckets:
+        print("No data to display")
+        return
+
+    max_count = max(count for _, count in buckets)
+
+    for (bucket_start, bucket_end), count in buckets:
+        # Calculate bar width
+        bar_width = int((count / max_count) * max_width)
+        bar = "#" * bar_width
+
+        # Format the output with range
+        print(f"[{bucket_start:8.2f}..{bucket_end:8.2f}] | {bar} {count}")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Generate a textual histogram from numbers"
+    )
+    parser.add_argument("--log", action="store_true", help="Use logarithmic bucketing")
+    parser.add_argument(
+        "--buckets", type=int, default=10, help="Number of buckets (default: 10)"
+    )
+
+    args = parser.parse_args()
+
+    try:
+        # Read from stdin
+        lines = sys.stdin.readlines()
+        numbers = parse_numbers(lines)
+
+        if not numbers:
+            print("Error: No valid numbers found in input", file=sys.stderr)
+            sys.exit(1)
+
+        # Create and display histogram
+        buckets = create_histogram(numbers, num_buckets=args.buckets, use_log=args.log)
+        display_histogram(buckets)
+
+    except KeyboardInterrupt:
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
