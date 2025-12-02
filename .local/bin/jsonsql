@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -eu
+
+duckdb -noheader -column \
+  -c "FROM read_json_auto('/dev/stdin') $1"
+
