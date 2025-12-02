@@ -2,4 +2,7 @@
 
 set -eu
 
-aws-okta exec zimride-developer -- aws s3 cp s3://lyft-control-iad/aggregated_manifests/development.json -
+aws-okta exec zimride-developer -- \
+  aws s3 cp s3://lyft-control-iad/aggregated_manifests/development.json - \
+  | jq -r '.[]'
+
