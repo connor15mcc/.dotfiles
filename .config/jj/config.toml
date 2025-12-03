@@ -73,3 +73,6 @@ default_commit_description = '''
 "
 '''
 "format_timestamp(timestamp)" = "timestamp.ago()"
+
+[git]
+private-commits = "description(glob:'private:*')"
