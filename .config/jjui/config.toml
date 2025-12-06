@@ -1,0 +1,4 @@
+[keys.inline_describe]
+mode = ["enter"]
+accept = ["enter"]
+editor = ["enter"]
