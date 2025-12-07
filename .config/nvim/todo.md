@@ -1,0 +1,3 @@
+- undotree: https://neovim.io/doc/user/plugins.html#undotree-plugin
+- justify: https://neovim.io/doc/user/usr_25.html#package-justify
+- dir difftool: https://neovim.io/doc/user/plugins.html#difftool
