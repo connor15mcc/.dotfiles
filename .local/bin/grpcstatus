@@ -23,5 +23,5 @@ statuses="0  OK
 if [ $# -eq 0 ]; then
   echo "$statuses"
 else
-  echo "$statuses" | grep -i --color=never "$@"
+  echo "$statuses" | grep -i --word-regexp --color=never "$@"
 fi
