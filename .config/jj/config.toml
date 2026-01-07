@@ -50,6 +50,16 @@ tug = [
   "--to",
   "closest_pushable(@)",
 ]
+drag = ["util", "exec", "--", "bash", "-c", """
+if [ -z "$1" ]; then
+    echo "missing bookmark"
+    exit 1
+fi
+set -euo pipefail
+jj git fetch -b $1
+jj rebase -s "at_operation(@-, $1+) & mutable()" -d $1
+""", ""]
+
 mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
@@ -82,7 +92,17 @@ command = ["rustfmt", "+nightly"]
 patterns = ["glob:**/*.rs"]
 
 [fix.tools.1-ruff-lint]
-command = ["uv", "run", "ruff", "check", "--fix", "--preview", "--quiet", "--stdin-filename=$path", "-"]
+command = [
+  "uv",
+  "run",
+  "ruff",
+  "check",
+  "--fix",
+  "--preview",
+  "--quiet",
+  "--stdin-filename=$path",
+  "-",
+]
 patterns = ["glob:'**/*.py'"]
 
 [fix.tools.2-ruff-format]
