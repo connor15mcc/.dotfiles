@@ -50,14 +50,19 @@ tug = [
   "--to",
   "closest_pushable(@)",
 ]
-drag = ["util", "exec", "--", "bash", "-c", """
-if [ -z "$1" ]; then
-    echo "missing bookmark"
-    exit 1
-fi
+ drag = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
-jj git fetch -b $1
-jj rebase -s "at_operation(@-, $1+) & mutable()" -d $1
+if [ -z \"\$1\" ]; then
+    bookmark=\$(jj bookmark list -r trunk() -T name --no-graph | head -1)
+    if [ -z \"\$bookmark\" ]; then
+        echo \"Error: Could not resolve trunk bookmark\"
+        exit 1
+    fi
+else
+    bookmark=\"\$1\"
+fi
+jj git fetch -b \"\$bookmark\"
+jj rebase -s \"at_operation(@-, \${bookmark}+) & mutable()\" -d \"\$bookmark\"
 """, ""]
 
 mine = ["bookmark", "list", "-r", "mine()"]
