@@ -60,6 +60,8 @@ bindkey -v
 
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
+# append to history files immediately (for `yank`)
+setopt inc_append_history
 
 export JJ_CONFIG=~/.config/jj/config.toml
 alias gab='git absorb'
