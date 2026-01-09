@@ -52,17 +52,17 @@ tug = [
 ]
  drag = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
-if [ -z \"\$1\" ]; then
-    bookmark=\$(jj bookmark list -r trunk() -T name --no-graph | head -1)
-    if [ -z \"\$bookmark\" ]; then
-        echo \"Error: Could not resolve trunk bookmark\"
+if [ -z "${1:-}" ]; then
+    bookmark=`jj log -r 'trunk()' --no-graph -T 'bookmarks.map(|b| b.name()).join("\n")' | head -1`
+    if [ -z "$bookmark" ]; then
+        echo "Error: Could not resolve trunk bookmark"
         exit 1
     fi
 else
-    bookmark=\"\$1\"
+    bookmark="$1"
 fi
-jj git fetch -b \"\$bookmark\"
-jj rebase -s \"at_operation(@-, \${bookmark}+) & mutable()\" -d \"\$bookmark\"
+jj git fetch -b "$bookmark"
+jj rebase -s "at_operation(@-, ${bookmark}+) & mutable()" -d "$bookmark"
 """, ""]
 
 mine = ["bookmark", "list", "-r", "mine()"]
