@@ -61,6 +61,8 @@ bindkey -v
 # expand globs (unsure if this is the best way?)
 setopt no_nomatch
 # append to history files immediately (for `yank`)
+HISTFILE=~/.zsh_history
+SAVEHIST=1000
 setopt inc_append_history
 
 export JJ_CONFIG=~/.config/jj/config.toml
