@@ -2,6 +2,6 @@
 
 set -eu
 
-duckdb -noheader -column \
+duckdb -noheader -list -separator $'\t' \
   -c "FROM read_json_auto('/dev/stdin') $1"
 
