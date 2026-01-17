@@ -112,6 +112,13 @@ keybinds clear-defaults=true {
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+
+        bind "Ctrl p" { SwitchToMode "Pane"; }
+        bind "Ctrl n" { SwitchToMode "Resize"; }
+        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "Ctrl o" { SwitchToMode "Session"; }
+        bind "Ctrl t" { SwitchToMode "Tab"; }
+        bind "Ctrl h" { SwitchToMode "Move"; }
     }
 }
 
@@ -136,7 +143,7 @@ plugins {
     zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm"
 
     zjstatus-hints location="https://github.com/b0o/zjstatus-hints/releases/latest/download/zjstatus-hints.wasm" {
-        max_length "60"
+        max_length "100"
         overflow_str "..."
         pipe_name "zjstatus_hints"
         // hide_in_base_mode true
