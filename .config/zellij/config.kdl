@@ -71,6 +71,9 @@ keybinds clear-defaults=true {
             SwitchToMode "normal"
         }
     }
+    shared_except "normal" "locked" {
+      bind "Enter" "Esc" { SwitchToMode "Normal"; }
+    }
     shared_among "pane" "tmux" {
         bind "x" { CloseFocus; SwitchToMode "normal"; }
     }

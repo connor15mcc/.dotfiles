@@ -11,6 +11,10 @@ layout {
             // Note: this is necessary or else zjstatus won't render the pipe:
             pipe_zjstatus_hints_format "{output}"
 
+            format_hide_on_overlength "true"
+            format_precedence         "clr"
+
+            hide_frame_for_single_pane "true"
             border_enabled  "false"
 
         mode_normal  "#[bg=#31748f] "
@@ -30,7 +34,7 @@ layout {
         tab_sync_indicator "<>"
 
         datetime        "#[fg=#31748f,bold] {format} "
-        datetime_format "%a %D @ %I:%M%P"
+        datetime_format "%A %D @ %I:%M%P"
         datetime_timezone "America/New_York"
       }
     }
