@@ -90,6 +90,15 @@ function chpwd() {
         emulate -L zsh
         ls
 }
+# name zellij tabs
+if [[ -n $ZELLIJ ]]; then
+    precmd() {
+        # Rename the pane to current directory
+        command nohup zellij action rename-pane "$(basename "$PWD")" >/dev/null 2>&1
+        # Rename the tab to match the focused pane
+        command nohup zellij action rename-tab "$(basename "$PWD")" >/dev/null 2>&1
+    }
+fi
 
 alias medit='fd manifest.yaml -X nvim'
 

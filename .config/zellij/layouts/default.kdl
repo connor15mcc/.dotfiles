@@ -2,29 +2,35 @@ layout {
   default_tab_template {
     children 
     pane size=1 borderless=true {
-      plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
-        format_left   "{mode} #[fg=#31748f,bold]{session}"
-        format_center "{tabs}"
-        format_right  "{datetime}"
-        format_space  ""
+        plugin location="zjstatus" {
+            format_left   "{mode} #[fg=#31748f,bold]{tabs}"
+            format_center "{pipe_zjstatus_hints}"
+            format_right  "{datetime}"
+            format_space  ""
 
-        border_enabled  "false"
+            // Note: this is necessary or else zjstatus won't render the pipe:
+            pipe_zjstatus_hints_format "{output}"
+
+            border_enabled  "false"
 
         mode_normal  "#[bg=#31748f] "
         mode_tmux    "#[bg=#f6c177] "
 
         // formatting for inactive tabs
-        tab_normal              "#[fg=#31748f] #{index}"
-        tab_normal_fullscreen   "#[fg=#31748f] #{index} {fullscreen_indicator}"
+        tab_normal              "#[fg=#31748f] {name}"
+        tab_normal_fullscreen   "#[fg=#31748f] {name} {fullscreen_indicator}"
+        tab_normal_sync         "#[fg=#31748f] {name} {sync_indicator}"
 
         // formatting for the current active tab
-        tab_active              "#[fg=#f6c177,bold,italic] #{index}"
-        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] #{index} {fullscreen_indicator}"
+        tab_active              "#[fg=#f6c177,bold,italic] {name}"
+        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] {name} {fullscreen_indicator}"
+        tab_active_sync   "#[fg=#f6c177,bold,italic] {name} {sync_indicator}"
 
         tab_fullscreen_indicator "[]"
+        tab_sync_indicator "<>"
 
         datetime        "#[fg=#31748f,bold] {format} "
-        datetime_format "%A %D @ %I:%M%P"
+        datetime_format "%a %D @ %I:%M%P"
         datetime_timezone "America/New_York"
       }
     }
