@@ -50,7 +50,13 @@ tug = [
   "--to",
   "closest_pushable(@)",
 ]
- drag = ["util", "exec", "--", "bash", "-c", """
+drag = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  """
 set -euo pipefail
 if [ -z "${1:-}" ]; then
     bookmark=`jj log -r 'trunk()' --no-graph -T 'bookmarks.map(|b| b.name()).join("\n")' | head -1`
@@ -63,11 +69,14 @@ else
 fi
 jj git fetch -b "$bookmark"
 jj rebase -s "at_operation(@-, ${bookmark}+) & mutable()" -d "$bookmark"
-""", ""]
+""",
+  "",
+]
 
 mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
+anon = ["util", "exec", "--", "jj-anon"]
 
 [revset-aliases]
 # To prevent rewriting commits authored by other users:
