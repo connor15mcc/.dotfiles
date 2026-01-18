@@ -76,7 +76,7 @@ jj rebase -s "at_operation(@-, ${bookmark}+) & mutable()" -d "$bookmark"
 mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
-anon = ["util", "exec", "--", "jj-anon"]
+iso = ["util", "exec", "--", "jj-iso"]
 
 [revset-aliases]
 # To prevent rewriting commits authored by other users:
