@@ -3,7 +3,7 @@ layout {
     children 
     pane size=1 borderless=true {
         plugin location="zjstatus" {
-            format_left   "{mode} #[fg=#31748f,bold]{tabs}"
+            format_left   "{mode} {tabs}"
             format_center "{pipe_zjstatus_hints}"
             format_right  "{datetime}"
             format_space  ""
@@ -20,14 +20,14 @@ layout {
         mode_tmux    "#[bg=#f6c177] "
 
         // formatting for inactive tabs
-        tab_normal              "#[fg=#31748f] {name}"
-        tab_normal_fullscreen   "#[fg=#31748f] {name} {fullscreen_indicator}"
-        tab_normal_sync         "#[fg=#31748f] {name} {sync_indicator}"
+        tab_normal              "#[fg=#31748f] {index}:{name}"
+        tab_normal_fullscreen   "#[fg=#31748f] {index}:{name}{fullscreen_indicator}"
+        tab_normal_sync         "#[fg=#31748f] {index}:{name}{sync_indicator}"
 
         // formatting for the current active tab
-        tab_active              "#[fg=#f6c177,bold,italic] {name}"
-        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] {name} {fullscreen_indicator}"
-        tab_active_sync   "#[fg=#f6c177,bold,italic] {name} {sync_indicator}"
+        tab_active              "#[fg=#f6c177,bold,italic] {index}:{name}"
+        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] {index}:{name}{fullscreen_indicator}"
+        tab_active_sync         "#[fg=#f6c177,bold,italic] {index}:{name}{sync_indicator}"
 
         tab_fullscreen_indicator "[]"
         tab_sync_indicator "<>"
