@@ -20,3 +20,5 @@ fi
 . "$HOME/.cargo/env"
 
 PATH=$HOME/go/bin:$PATH
+
+PATH="$HOME/.local/share/mise/shims:$PATH"
