@@ -26,12 +26,13 @@ neovim = "0.11.4"
 prek = "latest"
 ripgrep = "latest"
 typst = "latest"
-"ubi:sst/opencode" = "1.1.25"
 zellij = "0.43.1"
 zoxide = "latest"
+opencode = "1.1.20"                                                                                  # tracking accidental musl: https://github.com/anomalyco/opencode/issues/8826
 
-[alias]
+[tool_alias]
 tools = "cargo:https://github.com/connor15mcc/tools"
+asciinema = "github:asciinema/asciinema"
 
 [env]
 EDITOR = "nvim"
