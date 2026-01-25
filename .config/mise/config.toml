@@ -10,7 +10,7 @@ atuin = "latest"
 bitwarden = "latest"
 bottom = "latest"
 cargo-binstall = "latest"
-"cargo:https://github.com/connor15mcc/tools" = "latest"
+"cargo:https://github.com/connor15mcc/tools" = { version = "latest", postinstall = "tools install" }
 delta = "latest"
 duckdb = "latest"
 fd = "latest"
@@ -29,6 +29,9 @@ typst = "latest"
 "ubi:sst/opencode" = "1.1.25"
 zellij = "0.43.1"
 zoxide = "latest"
+
+[alias]
+tools = "cargo:https://github.com/connor15mcc/tools"
 
 [env]
 EDITOR = "nvim"
