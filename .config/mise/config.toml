@@ -1,0 +1,58 @@
+[tools]
+# Core development languages
+go = "1.23"
+python = "3.12"
+rust = "1.93.0"
+
+# CLI utilities
+ast-grep = "latest"
+atuin = "latest"
+bitwarden = "latest"
+bottom = "latest"
+cargo-binstall = "latest"
+"cargo:https://github.com/connor15mcc/tools" = "latest"
+delta = "latest"
+duckdb = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+"github:asciinema/asciinema" = "latest"
+hyperfine = "latest"
+jj = "latest"
+jjui = "latest"
+jq = "latest"
+kubectl = "latest"
+neovim = "0.11.4"
+prek = "latest"
+ripgrep = "latest"
+typst = "latest"
+"ubi:sst/opencode" = "1.1.25"
+zellij = "0.43.1"
+zoxide = "latest"
+
+[env]
+EDITOR = "nvim"
+
+[tasks.bootstrap]
+description = "Complete development environment setup"
+run = """
+mise install
+mise run init-tools
+"""
+
+[tasks.init-tools]
+description = "Initialize tool configurations"
+depends = ["init-atuin"]
+run = """
+echo "Tools initialized successfully!"
+mise doctor
+"""
+
+[tasks.init-atuin]
+description = "Initialize atuin history management"
+run = """
+# Import existing shell history if first time setup
+if [ ! -f ~/.local/share/atuin/history.db ]; then
+  atuin import zsh || echo "No shell history to import"
+fi
+"""
