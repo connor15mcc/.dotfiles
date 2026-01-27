@@ -29,6 +29,7 @@ typst = "latest"
 zellij = "0.43.1"
 zoxide = "latest"
 opencode = "1.1.20"                                                                                  # tracking accidental musl: https://github.com/anomalyco/opencode/issues/8826
+"cargo:https://github.com/asciinema/agg" = "latest"
 
 [tool_alias]
 tools = "cargo:https://github.com/connor15mcc/tools"
