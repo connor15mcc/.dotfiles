@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+palette:
+  black: '#0d0c0c'
+  blue: '#8ba4b0'
+  bright-black: '#a6a69c'
+  bright-blue: '#7FB4CA'
+  bright-cyan: '#7AA89F'
+  bright-green: '#87a987'
+  bright-magenta: '#938AA9'
+  bright-red: '#E46876'
+  bright-white: '#c5c9c5'
+  bright-yellow: '#E6C384'
+  cyan: '#8ea4a2'
+  diag-error: '#E82424'
+  diag-hint: '#6A9589'
+  diag-info: '#658594'
+  diag-ok: '#98BB6C'
+  diag-warning: '#FF9E3B'
+  git-added: '#76946A'
+  git-changed: '#DCA561'
+  git-removed: '#C34043'
+  green: '#8a9a7b'
+  magenta: '#a292a3'
+  none: transparent
+  red: '#c4746e'
+  special: '#7a8382'
+  white: '#C8C093'
+  yellow: '#c4b28a'
+transient_prompt:
+  template: '{{ .Segments.Path.Path }} ❯ '
+  foreground: p:bright-yellow
+blocks:
+  - type: prompt
+    alignment: left
+    segments:
+      - properties:
+          cache_duration: none
+          max_depth: 2
+          style: agnoster_short
+        template: '{{ .Path }}'
+        foreground: p:bright-yellow
+        type: path
+        style: plain
+  - type: prompt
+    alignment: left
+    segments:
+      - properties:
+          cache_duration: none
+        template: '{{ if ne .Code 0 }}<p:bright-red>{{ end }}❯'
+        type: text
+        style: plain
+    newline: true
+version: 4
+final_space: true
+async: true

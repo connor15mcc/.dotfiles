@@ -39,7 +39,53 @@ zinit snippet OMZP::vi-mode
 zinit load atuinsh/atuin
 
 ## oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.config/omp/config.yaml)"
+setopt interactivecomments
+setopt prompt_subst # enable command substition in prompt
+(( $+functions[add-zsh-hook] )) || autoload -Uz add-zsh-hook
+
+function prompt_lite_cmd() { oh-my-posh print primary --config ~/.config/omp/config.lite.yaml }
+function prompt_full_cmd() { oh-my-posh print primary --config ~/.config/omp/config.full.yaml }
+PROMPT='$(prompt_lite_cmd)' # single quotes to prevent immediate execution
+ASYNC_PROC=0
+function async_prompt() {
+    function async() {
+        printf "%s" "$(prompt_full_cmd)" > "/tmp/zsh_prompt_$$"
+        sleep 0.1
+        kill -s USR1 $$
+    }
+
+    if [[ "${ASYNC_PROC}" != 0 ]]; then
+        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+    fi
+
+    async &!
+    ASYNC_PROC=$!
+}
+add-zsh-hook precmd async_prompt
+
+function TRAPUSR1() {
+    # read from temp file
+    PROMPT="$(cat /tmp/zsh_prompt_$$)"
+    # remove the temp file
+    rm /tmp/zsh_prompt_$$
+
+    # reset proc number
+    ASYNC_PROC=0
+
+    # redisplay
+    zle && zle reset-prompt
+
+    # prepare for next
+    PROMPT='$(prompt_lite_cmd)'
+}
+
+function set_poshcontext() {
+    export POSH_JJ_SEGMENT=$(
+        if jj root >/dev/null 2>&1; then echo -n ''; fi
+        jj --ignore-working-copy log -r @ --no-graph -T 'change_id.shortest() ++ " " ++ description.first_line()' 2>/dev/null;
+        echo "foo"
+    )
+}
 ## /oh-my-posh
 
 # for managing dotfiles...
@@ -62,20 +108,19 @@ alias gcontrib='git log --pretty=format:"%an" | sort | uniq -c | sort -r'
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# ls after cd
-function chpwd() {
-        emulate -L zsh
-        ls
+function ls_after_cd() {
+    emulate -L zsh
+    ls
 }
-# name zellij tabs
-if [[ -n $ZELLIJ ]]; then
-    precmd() {
-        # Rename the pane to current directory
+add-zsh-hook chpwd ls_after_cd
+
+function zellij_tab_naming() {
+    if [[ -n $ZELLIJ ]]; then
         command nohup zellij action rename-pane "$(basename "$PWD")" >/dev/null 2>&1
-        # Rename the tab to match the focused pane
         command nohup zellij action rename-tab "$(basename "$PWD")" >/dev/null 2>&1
-    }
-fi
+    fi
+}
+add-zsh-hook precmd zellij_tab_naming
 
 alias medit='fd manifest.yaml -X nvim'
 
