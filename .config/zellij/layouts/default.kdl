@@ -12,7 +12,7 @@ layout {
             pipe_zjstatus_hints_format "{output}"
 
             format_hide_on_overlength "true"
-            format_precedence         "clr"
+            format_precedence         "lcr"
 
             border_enabled  "false"
 
