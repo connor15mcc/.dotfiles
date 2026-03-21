@@ -42,14 +42,7 @@ separate(" ",
 '''
 
 [aliases]
-tug = [
-  "bookmark",
-  "move",
-  "--from",
-  "closest_bookmark(@)",
-  "--to",
-  "closest_pushable(@)",
-]
+tug = ["bookmark", "advance"]
 drag = [
   "util",
   "exec",
