@@ -1,21 +1,54 @@
 return {
-	{
-		"olimorris/codecompanion.nvim",
-		config = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
+  {
+		"folke/sidekick.nvim",
 		opts = {
-			log_level = "DEBUG",
+			cli = {
+				mux = {
+					enabled = true,
+          backend = "zellij",
+				},
+			},
 		},
 		keys = {
-			{ "<leader>a", "<cmd>CodeCompanionActions<cr>",  noremap = true, silent = true },
-			{ "ga",        "<cmd>CodeCompanionChat Add<cr>", mode = "v",     noremap = true, silent = true },
+			{
+				"<c-.>",
+				function()
+					require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				end,
+				desc = "Sidekick Toggle",
+				mode = { "n", "t", "i", "x" },
+			},
+			{
+				"<leader>at",
+				function()
+					require("sidekick.cli").send({ msg = "{this}" })
+				end,
+				mode = { "x", "n" },
+				desc = "Send This",
+			},
+			{
+				"<leader>af",
+				function()
+					require("sidekick.cli").send({ msg = "{file}" })
+				end,
+				desc = "Send File",
+			},
+			{
+				"<leader>av",
+				function()
+					require("sidekick.cli").send({ msg = "{selection}" })
+				end,
+				mode = { "x" },
+				desc = "Send Visual Selection",
+			},
+			{
+				"<leader>ap",
+				function()
+					require("sidekick.cli").prompt()
+				end,
+				mode = { "n", "x" },
+				desc = "Sidekick Select Prompt",
+			},
 		},
-	},
-	{
-		"github/copilot.vim",
-		lazy = true,
-	},
+	}
 }
