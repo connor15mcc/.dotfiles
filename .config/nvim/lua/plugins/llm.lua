@@ -3,10 +3,8 @@ return {
 		"folke/sidekick.nvim",
 		opts = {
 			cli = {
-				mux = {
-					enabled = true,
-          backend = "zellij",
-				},
+        -- zellij support is spotty as best atm
+				mux = { },
 			},
 		},
 		keys = {
