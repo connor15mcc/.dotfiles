@@ -19,6 +19,7 @@ vim.opt.smartcase = true
 vim.opt.virtualedit = "block"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.nrformats = "blank"
 
 -- Make yank clipboard work w/ system clipboard. plus is for linux to ensure it uses the copy clipboard not the selection.
 -- The use of a function pushes this until after UiEnter which lowers startup time according to https://github.com/nvim-lua/kickstart.nvim/blob/d350db2449da40df003c40d440f909d74e2d4e70/init.lua#L115-L116
