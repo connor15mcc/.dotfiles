@@ -11,7 +11,7 @@ bitwarden = "latest"
 bottom = "latest"
 cargo-binstall = "latest"
 "cargo:https://github.com/asciinema/agg" = "latest"
-"cargo:https://github.com/connor15mcc/tools" = { version = "latest", postinstall = "tools install" }
+"cargo:https://github.com/connor15mcc/tools" = { version = "branch:main", source = "github.com/connor15mcc/tools", postinstall = "tools install" }
 delta = "latest"
 duckdb = "latest"
 fd = "latest"
