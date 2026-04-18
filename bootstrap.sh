@@ -1,3 +1,7 @@
+# TODO:
+# - bw-cli (auth?)
+# - doesn't work without pre-configuring git SSH keys, which is quite silly to me
+# - include ghostty + tailscale?
 #!/usr/bin/env bash
 set -e
 

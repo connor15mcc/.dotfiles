@@ -32,6 +32,7 @@ typst = "latest"
 uv = "latest"
 zellij = "0.43.1"
 zoxide = "latest"
+"aqua:tailscale/tailscale" = "latest"
 
 [tool_alias]
 tools = "cargo:https://github.com/connor15mcc/tools"
