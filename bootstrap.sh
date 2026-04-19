@@ -115,6 +115,10 @@ main() {
         info "🔧 Running mise initialization tasks..."
         mise run init-tools
     fi
+
+    info ""
+    info "To update shell to fish, run:             \`chsh -s \$(which fish)\`"
+    info "Add it to the list of allowed shells via: \`echo \$(which fish) >> /etc/shells\`"
 }
 
 # Run main function

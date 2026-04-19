@@ -1,0 +1,6 @@
+abbr -a vim 'nvim'
+abbr -a config 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+abbr -a gab 'git absorb'
+abbr -a gdecay 'git log --pretty=format:"%ad" --date=iso | tools decay'
+abbr -a gcontrib 'git log --pretty=format:"%an" | sort | uniq -c | sort -r'
+abbr -a medit 'fd manifest.yaml -X nvim'
