@@ -31,7 +31,6 @@ log_node = '''
     )
   )
 '''
-log = "builtin_log_compact_full_description"
 file_annotate = '''
 separate(" ",
   commit.change_id().shortest(8),
