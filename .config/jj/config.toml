@@ -118,3 +118,7 @@ patterns = ["glob:'**/*.py'"]
 [fix.tools.2-ruff-format]
 command = ["uv", "run", "ruff", "format", "--stdin-filename=$path", "-"]
 patterns = ["glob:'**/*.py'"]
+
+[fix.tools.gofmt]
+command = ["goimports"]
+patterns = ["glob:'**/*.go'"]
