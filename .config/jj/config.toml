@@ -121,3 +121,8 @@ patterns = ["glob:'**/*.py'"]
 [fix.tools.gofmt]
 command = ["goimports"]
 patterns = ["glob:'**/*.go'"]
+
+[merge-tools.":both"]
+program = "jj-merge-both"
+merge-args = ["$base", "$left", "$right", "$output"]
+
