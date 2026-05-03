@@ -42,33 +42,32 @@ separate(" ",
 
 [aliases]
 tug = ["bookmark", "advance"]
-drag = [
-  "util",
-  "exec",
-  "--",
-  "bash",
-  "-c",
-  """
-set -euo pipefail
-if [ -z "${1:-}" ]; then
-    bookmark=`jj log -r 'trunk()' --no-graph -T 'bookmarks.map(|b| b.name()).join("\n")' | head -1`
-    if [ -z "$bookmark" ]; then
-        echo "Error: Could not resolve trunk bookmark"
-        exit 1
-    fi
-else
-    bookmark="$1"
-fi
-jj git fetch -b "$bookmark"
-jj rebase -s "at_operation(@-, ${bookmark}+) & mutable()" -d "$bookmark"
-""",
-  "",
-]
-
 mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
 iso = ["util", "exec", "--", "jj-iso"]
+
+## megamerges:
+# stack all changes after the megamerge
+stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+# inserts the given revset as a new branch under the megamerge.
+stack = [
+  "rebase",
+  "--after",
+  "trunk()",
+  "--before",
+  "closest_merge(@)",
+  "--revision",
+]
+# rebase (only) our changes
+restack = [
+  "rebase",
+  "--onto",
+  "trunk()",
+  "--source",
+  "roots(trunk()..) & mutable()",
+  "--simplify-parents",
+]
 
 [revsets]
 bookmark-advance-to = 'closest_pushable(@)'
@@ -79,6 +78,8 @@ bookmark-advance-to = 'closest_pushable(@)'
 
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+# returns the closest merge commit to `to`:
+"closest_merge(to)" = "heads(::to & merges())"
 
 
 [template-aliases]
