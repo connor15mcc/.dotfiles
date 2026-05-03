@@ -46,6 +46,7 @@ mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
 iso = ["util", "exec", "--", "jj-iso"]
+vine = ["util", "exec", "--", "jj-vine"]
 
 ## megamerges:
 # stack all changes after the megamerge
@@ -127,3 +128,5 @@ patterns = ["glob:'**/*.go'"]
 program = "jj-merge-both"
 merge-args = ["$base", "$left", "$right", "$output"]
 
+[jj-vine]
+description.sync = true
