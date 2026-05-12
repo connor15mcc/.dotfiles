@@ -12,11 +12,27 @@ git_push_bookmark = '"connor15mcc/" ++ change_id.shortest(3)'
 draft_commit_description = '''
 concat(
   coalesce(description, default_commit_description, "\n"),
+  "JJ: ignore-rest
+
+feat: introduces a new feature
+fix: fixes a bug
+refactor: code changes that neither fix a bug nor introduce a feature
+test: addition of missing tests or corrections to existing tests
+docs: changes in documentation only
+style: code changes that do not impact the functionality
+perf: code changes that improve performance
+chore: changes that do not modify the source code or test files
+build: changes affecting the build system or external dependencies
+ci: changes to continuous integration configuration files and scripts
+revert: reverts a previously made commit
+
+reference: JIRA-1234
+Co-authored-by: name <user@users.noreply.github.com>
+",
   surround(
     "\nJJ: This commit contains the following changes:\n", "",
     indent("JJ:     ", diff.stat(72)),
   ),
-  "\nJJ: ignore-rest\n",
   diff.git(),
 )
 '''
