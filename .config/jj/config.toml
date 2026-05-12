@@ -50,16 +50,9 @@ vine = ["util", "exec", "--", "jj-vine"]
 
 ## megamerges:
 # stack all changes after the megamerge
-stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+stage = ["util", "exec", "--", "jj-stack", "closest_merge(@)+:: ~ empty()"]
 # inserts the given revset as a new branch under the megamerge.
-stack = [
-  "rebase",
-  "--after",
-  "trunk()",
-  "--before",
-  "closest_merge(@)",
-  "--revision",
-]
+stack = ["util", "exec", "--", "jj-stack"]
 # rebase (only) our changes
 restack = [
   "rebase",
