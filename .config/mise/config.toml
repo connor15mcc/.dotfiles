@@ -34,7 +34,7 @@ zoxide = "latest"
 "aqua:tailscale/tailscale" = "latest"
 "aqua:fish-shell/fish-shell" = "latest"
 "cargo:jj-vine" = "latest"
-"cargo:https://github.com/connor15mcc/tools" = { version = "ref:main", postinstall = "tools install" }
+tools = { version = "latest", postinstall = "tools install" }
 
 [tool_alias]
 tools = "cargo:https://github.com/connor15mcc/tools"
