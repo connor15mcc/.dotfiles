@@ -35,9 +35,3 @@ vim.opt.smarttab = true
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
-
-vim.filetype.add({
-	pattern = {
-		[".*.jjdescription"] = "gitcommit",
-	},
-})
