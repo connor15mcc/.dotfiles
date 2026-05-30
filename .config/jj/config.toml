@@ -3,7 +3,14 @@ name = "Connor McCarthy"
 email = "connor15mcc@gmail.com"
 
 [ui]
-default-command = ["log", "--template=builtin_log_compact"]
+default-command = [
+  "log",
+  "--template=builtin_log_compact",
+  # show only up-to-date changes.
+  # this facilitates dropping work from actively tracked (megamerge),
+  # while balancing log noise and avoiding the desire to abandon entirely
+  "--revisions=trunk()::",
+]
 pager = "delta"
 diff-formatter = ":git"
 
