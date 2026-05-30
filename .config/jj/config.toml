@@ -59,7 +59,6 @@ separate(" ",
 [aliases]
 tug = ["bookmark", "advance"]
 mine = ["bookmark", "list", "-r", "mine()"]
-rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
 long = ["log", "--template", "builtin_log_detailed"]
 iso = ["util", "exec", "--", "jj-iso"]
@@ -77,15 +76,8 @@ stage = [
 ]
 # inserts the given revset as a new branch under the megamerge.
 stack = ["util", "exec", "--", "jj-stack"]
-# rebase (only) our changes
-restack = [
-  "rebase",
-  "--onto",
-  "trunk()",
-  "--source",
-  "roots(trunk()..) & mutable()",
-  "--simplify-parents",
-]
+# rebase (only) our megemerge changes
+restack = ["rebase", "--destination", "trunk()", "--simplify-parents"]
 
 [revsets]
 bookmark-advance-to = 'closest_pushable(@)'
