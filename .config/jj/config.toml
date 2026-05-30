@@ -66,7 +66,14 @@ pr = ["util", "exec", "--", "jj-vine"]
 
 ## megamerges:
 # stack all changes after the megamerge
-stage = ["util", "exec", "--", "jj-stack", "-r", "closest_merge(@)+:: ~ empty()"]
+stage = [
+  "util",
+  "exec",
+  "--",
+  "jj-stack",
+  "-r",
+  "closest_merge(@)+:: ~ empty()",
+]
 # inserts the given revset as a new branch under the megamerge.
 stack = ["util", "exec", "--", "jj-stack"]
 # rebase (only) our changes
