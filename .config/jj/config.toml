@@ -62,7 +62,7 @@ mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
 iso = ["util", "exec", "--", "jj-iso"]
-vine = ["util", "exec", "--", "jj-vine"]
+pr = ["util", "exec", "--", "jj-vine"]
 
 ## megamerges:
 # stack all changes after the megamerge
