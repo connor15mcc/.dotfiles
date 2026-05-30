@@ -61,6 +61,7 @@ tug = ["bookmark", "advance"]
 mine = ["bookmark", "list", "-r", "mine()"]
 rebase-all = ["rebase", "-s", "(::trunk())+ & mutable()", "-d", "trunk()"]
 accuse = ["file", "annotate"]
+long = ["log", "--template", "builtin_log_detailed"]
 iso = ["util", "exec", "--", "jj-iso"]
 pr = ["util", "exec", "--", "jj-vine"]
 
