@@ -69,6 +69,13 @@ tug = ["bookmark", "advance"]
 mine = ["bookmark", "list", "-r", "mine()"]
 accuse = ["file", "annotate"]
 long = ["log", "--template", "builtin_log_detailed"]
+collapse = [
+  "squash",
+  "--from",
+  "branch_start(@)+::@",
+  "--to",
+  "branch_start(@)",
+]
 iso = ["util", "exec", "--", "jj-iso"]
 pr = ["util", "exec", "--", "jj-vine"]
 
@@ -99,6 +106,7 @@ bookmark-advance-to = 'closest_pushable(@)'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 # returns the closest merge commit to `to`:
 "closest_merge(to)" = "heads(::to & merges())"
+"branch_start(to)" = "heads(::to & trunk())+ & ::to"
 
 
 [template-aliases]
