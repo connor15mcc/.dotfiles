@@ -69,8 +69,3 @@ map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 map("n", "grd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
--- until this lands (0.11) https://github.com/neovim/neovim/pull/28650
-map("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "gra", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "grr", vim.lsp.buf.references, { desc = "Goto References" })
-map("n", "gri", vim.lsp.buf.implementation, { desc = "Goto Implementations" })
