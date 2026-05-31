@@ -1,31 +1,64 @@
+local filetypes = {
+  "bash",
+  "go",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "markdown",
+  "python",
+  "query",
+  "regex",
+  "svelte",
+  "tsx",
+  "typescript",
+  "vim",
+  "yaml",
+}
+
+local install_languages = {
+  "bash",
+  "ecma",
+  "go",
+  "html",
+  "html_tags",
+  "javascript",
+  "json",
+  "jsx",
+  "lua",
+  "markdown",
+  "python",
+  "query",
+  "regex",
+  "svelte",
+  "tsx",
+  "typescript",
+  "vim",
+  "yaml",
+}
+
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    "neovim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
+    dependencies = {
+      "neovim-treesitter/treesitter-parser-registry",
+    },
     opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = {
-        "bash",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "svelte",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
+      install_dir = vim.fn.stdpath("data") .. "/site",
     },
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup(opts)
+      require("nvim-treesitter").install(install_languages):wait(300000)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("treesitter-start", { clear = true }),
+        pattern = filetypes,
+        callback = function(args)
+          vim.treesitter.start(args.buf)
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
       })
     end,
   },
