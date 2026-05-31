@@ -55,5 +55,18 @@ return {
 				vim.keymap.set({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", { buffer = buffer, desc = "Reset Hunk" })
 			end,
 		}
+	},
+	{
+		"https://tangled.org/ronshavit.com/jjannotate.nvim",
+		keys = {
+			{
+				"<leader>jb",
+				function()
+					require("jjannotate").open()
+				end,
+				desc = "blame",
+				mode = { "n" },
+			},
+		}
 	}
 }
