@@ -87,7 +87,7 @@ stage = [
   "--",
   "jj-stack",
   "-r",
-  "closest_merge(@)+:: ~ empty()",
+  "active_megamerge(@)+:: ~ empty()",
 ]
 # inserts the given revset as a new branch under the megamerge.
 stack = ["util", "exec", "--", "jj-stack"]
@@ -104,8 +104,7 @@ bookmark-advance-to = 'closest_pushable(@)'
 
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
-# returns the closest merge commit to `to`:
-"closest_merge(to)" = "heads(::to & merges())"
+"active_megamerge(to)" = "heads(::to & merges() & (trunk()..))"
 "branch_start(to)" = "heads(::to & trunk())+ & ::to"
 
 
