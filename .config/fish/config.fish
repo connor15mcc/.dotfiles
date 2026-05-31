@@ -6,7 +6,7 @@ set -g fish_transient_prompt 1
 fish_add_path $HOME/.local/share/mise/shims
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/go/bin
-fish_add_path -g $HOME/.cargo/bin
+fish_add_path $HOME/.cargo/bin
 
 fish_vi_key_bindings
 # <C-k> for accept; <C-n>, <C-p> to scroll
