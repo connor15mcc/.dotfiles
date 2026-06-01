@@ -47,10 +47,10 @@ return {
     },
     opts = {
       install_dir = vim.fn.stdpath("data") .. "/site",
+      ensure_installed = install_languages,
     },
     config = function(_, opts)
       require("nvim-treesitter").setup(opts)
-      require("nvim-treesitter").install(install_languages):wait(300000)
 
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("treesitter-start", { clear = true }),
