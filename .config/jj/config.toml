@@ -9,11 +9,12 @@ default-command = [
   # show only up-to-date changes.
   # this facilitates dropping work from actively tracked (megamerge),
   # while balancing log noise and avoiding the desire to abandon entirely
-  "--revisions=fork_point(active_megamerge(@)-)::@ | ancestors(trunk(), 2)",
+  "--revisions=fork_point(active_megamerge(@)-)::@ | ancestors(trunk(), 2) | ancestors(@, 2)",
   #            include all commits in the
   #            megamerge
   #                                                  include recent changes
   #                                                  on trunk for bearings
+  #                                                                          always include head
 ]
 pager = "delta"
 diff-formatter = ":git"
