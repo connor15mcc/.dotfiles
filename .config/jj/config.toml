@@ -18,6 +18,8 @@ default-command = [
 ]
 pager = "delta"
 diff-formatter = ":git"
+diff-editor = "nvim"
+editor = "nvim"
 
 [templates]
 git_push_bookmark = '"connor15mcc/" ++ change_id.shortest(3)'
@@ -69,35 +71,45 @@ separate(" ",
 ) ++ ": " ++ content
 '''
 
-[aliases]
-tug = ["bookmark", "advance"]
-mine = ["bookmark", "list", "-r", "mine()"]
-accuse = ["file", "annotate"]
-long = ["log", "--template", "builtin_log_detailed"]
-collapse = [
-  "squash",
-  "--from",
-  "branch_start(@)+::@",
-  "--to",
-  "branch_start(@)",
-]
-iso = ["util", "exec", "--", "jj-iso"]
-pr = ["util", "exec", "--", "jj-vine"]
+[aliases.tug]
+doc = "Advance a bookmark to the latest revision"
+definition = ["bookmark", "advance"]
 
-## megamerges:
-# stack all changes after the megamerge
-stage = [
-  "util",
-  "exec",
-  "--",
-  "jj-stack",
-  "-r",
-  "active_megamerge(@)+:: ~ empty()",
-]
-# inserts the given revset as a new branch under the megamerge.
-stack = ["util", "exec", "--", "jj-stack"]
-# rebase (only) our megemerge changes
-restack = ["rebase", "--destination", "trunk()", "--simplify-parents"]
+[aliases.mine]
+doc = "List bookmarks on revisions I authored"
+definition = ["bookmark", "list", "-r", "mine()"]
+
+[aliases.accuse]
+doc = "Annotate file lines with their originating commit"
+definition = ["file", "annotate"]
+
+[aliases.long]
+doc = "Show detailed log output"
+definition = ["log", "--template", "builtin_log_detailed"]
+
+[aliases.collapse]
+doc = "Squash all commits on the current branch into the branch start"
+definition = ["squash", "--from", "branch_start(@)+::@", "--to", "branch_start(@)"]
+
+[aliases.iso]
+doc = "Create an isolated workspace via jj-iso"
+definition = ["util", "exec", "--", "jj-iso"]
+
+[aliases.pr]
+doc = "Open or manage pull requests via jj-vine"
+definition = ["util", "exec", "--", "jj-vine"]
+
+[aliases.stage]
+doc = "Stack all non-empty changes after the active megamerge"
+definition = ["util", "exec", "--", "jj-stack", "-r", "active_megamerge(@)+:: ~ empty()"]
+
+[aliases.stack]
+doc = "Insert a revision as a new branch under the active megamerge"
+definition = ["util", "exec", "--", "jj-stack"]
+
+[aliases.restack]
+doc = "Rebase megamerge changes onto trunk"
+definition = ["rebase", "--destination", "trunk()", "--simplify-parents"]
 
 [revsets]
 bookmark-advance-to = 'closest_pushable(@)'
@@ -124,6 +136,10 @@ default_commit_description = '''
 "
 '''
 "format_timestamp(timestamp)" = "timestamp.ago()"
+
+[merge-tools.nvim]
+edit-args = ["-d", "$left", "$right"]
+edit-invocation-mode = "file-by-file"
 
 [git]
 private-commits = "description(glob:'private:*')"
