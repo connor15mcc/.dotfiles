@@ -108,6 +108,26 @@ definition = ["util", "exec", "--", "jj-iso"]
 doc = "Open or manage pull requests via jj-vine"
 definition = ["util", "exec", "--", "jj-vine"]
 
+[aliases.prek]
+doc = "Run prek (pre-commit) on recent (reachable) changes"
+# recent discussion in discord:
+# https://discord.com/channels/968932220549103686/968932220549103689/1523207332094415019
+definition = [
+  "util",
+  "exec",
+  "--",
+  "jj",
+  "run",
+  "--jobs",
+  "4",      # arbitrarily chosen...
+  "--",
+  "bash",
+  "-c",
+  # `$JJ_COMMIT_ID` is set for us via jj run. we use this to feed the changed
+  # files to prek
+  "jj diff --name-only --revision=$JJ_COMMIT_ID | xargs prek run --files",
+]
+
 [aliases.plan]
 doc = "Add an empty change at tip with a given desc"
 definition = ["new", "--no-edit", "heads(@::)", "-m"]
