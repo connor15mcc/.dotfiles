@@ -92,7 +92,13 @@ definition = ["log", "--template", "builtin_log_detailed"]
 
 [aliases.collapse]
 doc = "Squash all commits on the current branch into the branch start"
-definition = ["squash", "--from", "branch_start(@)+::@", "--to", "branch_start(@)"]
+definition = [
+  "squash",
+  "--from",
+  "branch_start(@)+::@",
+  "--to",
+  "branch_start(@)",
+]
 
 [aliases.iso]
 doc = "Create an isolated workspace via jj-iso"
@@ -108,7 +114,14 @@ definition = ["new", "--no-edit", "heads(@::)", "-m"]
 
 [aliases.stage]
 doc = "Stack all non-empty changes after the active megamerge"
-definition = ["util", "exec", "--", "jj-stack", "-r", "active_megamerge(@)+:: ~ empty()"]
+definition = [
+  "util",
+  "exec",
+  "--",
+  "jj-stack",
+  "-r",
+  "active_megamerge(@)+:: ~ empty()",
+]
 
 [aliases.stack]
 doc = "Insert a revision as a new branch under the active megamerge"
