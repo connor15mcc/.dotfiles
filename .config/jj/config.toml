@@ -18,7 +18,6 @@ default-command = [
 ]
 pager = "delta"
 diff-formatter = ":git"
-diff-editor = "nvim"
 editor = "nvim"
 
 [templates]
@@ -144,10 +143,6 @@ default_commit_description = '''
 "
 '''
 "format_timestamp(timestamp)" = "timestamp.ago()"
-
-[merge-tools.nvim]
-edit-args = ["-d", "$left", "$right"]
-edit-invocation-mode = "file-by-file"
 
 [git]
 private-commits = "description(glob:'private:*')"
