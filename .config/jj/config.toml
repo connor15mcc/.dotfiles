@@ -99,6 +99,10 @@ definition = ["util", "exec", "--", "jj-iso"]
 doc = "Open or manage pull requests via jj-vine"
 definition = ["util", "exec", "--", "jj-vine"]
 
+[aliases.plan]
+doc = "Add an empty change at tip with a given desc"
+definition = ["new", "--no-edit", "heads(@::)", "-m"]
+
 [aliases.stage]
 doc = "Stack all non-empty changes after the active megamerge"
 definition = ["util", "exec", "--", "jj-stack", "-r", "active_megamerge(@)+:: ~ empty()"]
