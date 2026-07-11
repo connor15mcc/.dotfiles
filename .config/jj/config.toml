@@ -71,6 +71,10 @@ separate(" ",
 ) ++ ": " ++ content
 '''
 
+[aliases.jj]
+doc = "Forward (accidentally) nested commands back to `jj`"
+definition = ["util", "exec", "--", "jj"]
+
 [aliases.tug]
 doc = "Advance a bookmark to the latest revision"
 definition = ["bookmark", "advance"]
