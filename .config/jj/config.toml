@@ -131,7 +131,20 @@ definition = [
 
 [aliases.plan]
 doc = "Add an empty change at tip with a given desc"
-definition = ["new", "--no-edit", "heads(@::)", "-m"]
+definition = [
+  "new",
+  "--no-edit",
+  "--insert-after",
+  # the one
+  #   latest change
+  #       on trunk that has either content or a desc
+  '''
+  exactly(
+    heads(trunk():: & (~empty() | ~description(""))), 1
+  )
+''',
+  "-m",
+]
 
 [aliases.stage]
 doc = "Stack all non-empty changes after the active megamerge"
