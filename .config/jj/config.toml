@@ -195,7 +195,7 @@ default_commit_description = '''
 private-commits = "description(glob:'private:*')"
 
 [fix.tools.rustfmt]
-command = ["rustfmt", "+nightly"]
+command = ["rustfmt", "+nightly", "--edition", "2024"]
 patterns = ["glob:**/*.rs"]
 
 [fix.tools.1-ruff-lint]
