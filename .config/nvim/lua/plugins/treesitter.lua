@@ -3,6 +3,7 @@ local filetypes = {
   "go",
   "html",
   "javascript",
+  "jjdescription",
   "json",
   "lua",
   "markdown",
@@ -23,6 +24,9 @@ local install_languages = {
   "html",
   "html_tags",
   "javascript",
+  "jjdescription",
+  "diff",
+  "comment",
   "json",
   "jsx",
   "lua",
@@ -51,6 +55,7 @@ return {
     },
     config = function(_, opts)
       require("nvim-treesitter").setup(opts)
+      require("config.jjdescription").setup_treesitter_queries()
 
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("treesitter-start", { clear = true }),
