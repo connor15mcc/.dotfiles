@@ -134,42 +134,6 @@ local function apply_accents()
   end
 end
 
-local function setup_kanagawa()
-  -- Default options
-  require("kanagawa").setup({
-    transparent = true,
-
-    colors = {
-      theme = {
-        all = {
-          ui = {
-            bg_gutter = "none",
-            bg_m3 = "#2A2A37",
-            -- make md checkboxes always the same color (highlighted or not)
-            fg_reverse = "#FF9E3B",
-          },
-          diag = {
-            -- info = "none",
-            -- make hints less bright
-            hint = "#658594",
-            -- make TODOs yellow
-            -- todo def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/highlights/treesitter.lua#L107
-            -- color def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/colors.lua#L28C20-L28C27
-            hint = "#658594",
-          },
-        },
-      }, -- no background for sign/line gutter
-    },
-
-    overrides = function(colors)
-      local theme = colors.theme
-      return {
-        Todo = { bg = "none", fg = theme.diag.warning },
-        Comment = { fg = theme.syn.special2 },
-      }
-    end,
-  })
-end
 
 return {
   {
@@ -188,10 +152,45 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("silentium")
-      apply_transparency()
-      apply_dimmed_silentium()
-      apply_accents()
+      -- Default options
+      require("kanagawa").setup({
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+        -- Transparency is handled by Ghostty terminal
+        transparent = true,
+
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none",
+                bg_m3 = "#2A2A37",
+                -- make md checkboxes always the same color (highlighted or not)
+                fg_reverse = "#FF9E3B",
+              },
+              diag = {
+                -- info = "none",
+                -- make hints less bright
+                hint = "#658594",
+                -- make TODOs yellow
+                -- todo def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/highlights/treesitter.lua#L107
+                -- color def: https://github.com/rebelot/kanagawa.nvim/blob/e5f7b8a804360f0a48e40d0083a97193ee4fcc87/lua/kanagawa/colors.lua#L28C20-L28C27
+                hint = "#658594",
+              },
+            },
+          }, -- no background for sign/line gutter
+        },
+
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            Todo = { bg = "none", fg = theme.diag.warning },
+            Comment = { fg = theme.syn.special2 },
+          }
+        end,
+      })
     end,
   },
 }
