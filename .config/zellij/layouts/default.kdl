@@ -16,23 +16,23 @@ layout {
 
             border_enabled  "false"
 
-        mode_normal  "#[bg=#31748f] "
-        mode_tmux    "#[bg=#f6c177] "
+        mode_normal  "#[bg=cyan] "
+        mode_tmux    "#[bg=yellow] "
 
         // formatting for inactive tabs
-        tab_normal              "#[fg=#31748f] {index}:{name}"
-        tab_normal_fullscreen   "#[fg=#31748f] {index}:{name}{fullscreen_indicator}"
-        tab_normal_sync         "#[fg=#31748f] {index}:{name}{sync_indicator}"
+        tab_normal              "#[fg=cyan] {index}:{name}"
+        tab_normal_fullscreen   "#[fg=cyan] {index}:{name}{fullscreen_indicator}"
+        tab_normal_sync         "#[fg=cyan] {index}:{name}{sync_indicator}"
 
         // formatting for the current active tab
-        tab_active              "#[fg=#f6c177,bold,italic] {index}:{name}"
-        tab_active_fullscreen   "#[fg=#f6c177,bold,italic] {index}:{name}{fullscreen_indicator}"
-        tab_active_sync         "#[fg=#f6c177,bold,italic] {index}:{name}{sync_indicator}"
+        tab_active              "#[fg=yellow,bold,italic] {index}:{name}"
+        tab_active_fullscreen   "#[fg=yellow,bold,italic] {index}:{name}{fullscreen_indicator}"
+        tab_active_sync         "#[fg=yellow,bold,italic] {index}:{name}{sync_indicator}"
 
         tab_fullscreen_indicator "[]"
         tab_sync_indicator "<>"
 
-        datetime        "#[fg=#31748f,bold] {format} "
+        datetime        "#[fg=cyan,bold] {format} "
         datetime_format "%A %D @ %I:%M%P"
         datetime_timezone "America/New_York"
       }
