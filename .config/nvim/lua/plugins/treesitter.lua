@@ -43,18 +43,16 @@ local install_languages = {
 
 return {
   {
-    "neovim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
-    dependencies = {
-      "neovim-treesitter/treesitter-parser-registry",
-    },
     opts = {
       install_dir = vim.fn.stdpath("data") .. "/site",
-      ensure_installed = install_languages,
     },
     config = function(_, opts)
       require("nvim-treesitter").setup(opts)
+      require("nvim-treesitter").install(install_languages)
       require("config.jjdescription").setup_treesitter_queries()
 
       vim.api.nvim_create_autocmd("FileType", {
