@@ -1,4 +1,3 @@
-background-opacity = 0.9
 theme = dark:github-dark,light:github
 
 macos-titlebar-proxy-icon = hidden
