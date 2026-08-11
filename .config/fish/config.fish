@@ -26,6 +26,7 @@ if not pgrep ssh-agent | string collect >/dev/null
   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 end
 
+set -g mise_fish_mode eval_after_arrow
 mise activate fish | source
 atuin init fish | source
 zoxide init fish --cmd cd | source
