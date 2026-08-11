@@ -2,7 +2,7 @@
 # Core development languages
 go = "1.25"
 python = "3.12"
-rust = "1.93.0"
+rust = "1.94.0"
 
 # CLI utilities
 ast-grep = "latest"
@@ -67,3 +67,6 @@ if [ ! -f ~/.local/share/atuin/history.db ]; then
   atuin import zsh || echo "No shell history to import"
 fi
 """
+
+[settings]
+idiomatic_version_file_enable_tools = ["rust"]
