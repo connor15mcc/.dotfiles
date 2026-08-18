@@ -78,17 +78,6 @@ local function apply_accents()
   local silentium_function_call = fg("@function.call", fg("Function", 0xe6e6e6))
 
   for _, group in ipairs({
-    "Comment",
-    "SpecialComment",
-    "@comment",
-    "@lsp.type.comment",
-    "GitSignsCurrentLineBlame",
-    "CmpGhostText",
-  }) do
-    hi(group, { fg = cyan, italic = true })
-  end
-
-  for _, group in ipairs({
     "@comment.documentation",
     "@string.documentation",
     "@lsp.typemod.comment.documentation",
