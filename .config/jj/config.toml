@@ -21,6 +21,9 @@ pager = "delta"
 diff-formatter = ":git"
 editor = "nvim"
 
+[snapshot]
+auto-update-stale = true
+
 [templates]
 git_push_bookmark = '"connor15mcc/" ++ change_id.shortest(3)'
 draft_commit_description = '''
