@@ -8,7 +8,7 @@ return {
 		dim = { enabled = true },
 		toggle = { enabled = true },
 		zen = { enabled = true },
-		quickfile = { enabled = true },
+		quickfile = { enabled = false },
 	},
 	keys = {
 		{

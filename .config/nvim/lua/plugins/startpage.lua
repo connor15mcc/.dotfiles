@@ -50,7 +50,9 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           starter.config.footer = "Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-          pcall(starter.refresh)
+          if starter.buf_id and vim.api.nvim_buf_is_valid(starter.buf_id) then
+            pcall(starter.refresh)
+          end
         end,
       })
     end,
