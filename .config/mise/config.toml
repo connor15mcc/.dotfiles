@@ -6,7 +6,7 @@ rust = "1.94.0"
 
 # CLI utilities
 ast-grep = "latest"
-atuin = "latest"
+atuin = "18.19.0"
 bitwarden = "latest"
 bottom = "latest"
 cargo-binstall = "latest"

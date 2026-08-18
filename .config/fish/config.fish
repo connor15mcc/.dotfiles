@@ -29,4 +29,5 @@ end
 set -g mise_fish_mode eval_after_arrow
 mise activate fish | source
 atuin init fish | source
+atuin pty-proxy init fish | source
 zoxide init fish --cmd cd | source
