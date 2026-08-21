@@ -79,6 +79,18 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "normal"
         }
+        bind "f" {
+          ToggleHostFullscreen;
+          SwitchToMode "normal";
+        }
+        bind "[" {
+          FocusGuestSession;
+          SwitchToMode "normal";
+        }
+        bind "]" {
+          FocusHostSession;
+          SwitchToMode "normal";
+        }
     }
     shared_except "normal" "locked" {
       bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -438,3 +450,4 @@ show_startup_tips false
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+nested_session_handling "fullscreen"
