@@ -127,10 +127,10 @@ definition = [
   "--",
   "bash",
   "-c",
-  # `$JJ_COMMIT_ID` is set for us via `jj run`. we use this to feed the changed
-  # files to prek
+  # `$JJ_COMMIT_ID` is set for us via `jj run`. `path` renders repo-root-relative
+  # paths, which is what prek expects.
   '''
-  prek run --files $(cd "$(jj workspace root)" && jj diff --name-only -r "$JJ_COMMIT_ID")
+  prek run --files $(jj diff -T 'path ++ "\n"' -r "$JJ_COMMIT_ID")
   ''',
 ]
 
